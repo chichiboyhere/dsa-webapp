@@ -1,0 +1,16 @@
+services:
+  postgres:
+    image: postgres:15
+    container_name: dsa_postgres
+    restart: always
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: dsa
+      POSTGRES_PASSWORD: dsa123
+      POSTGRES_DB: dsa_db
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:

@@ -1,0 +1,138 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Student {
+  id String @id @default(uuid())
+
+  surname    String
+  firstName  String
+  middleName String?
+
+  dob    DateTime
+  gender String
+
+  email    String @unique
+  password String
+
+  address String
+  phone   String
+
+  nationality String
+  state       String
+  lga         String
+
+  photoUrl String?
+
+  guardianName    String
+  guardianPhone   String
+  guardianAddress String
+  relationship    String
+
+  // ----- HEALTH & EMERGENCY -----
+  medicalInfo String?
+
+  emergencyName  String
+  emergencyPhone String
+
+  // ----- ACADEMICS -----
+  department String
+  exam       String
+
+  subjects     Json
+  tradeSubject String?
+
+  // ----- COMPLIANCE -----
+  agreedToConduct Boolean @default(false)
+
+  // ----- PAYMENT -----
+  paymentStatus String  @default("PENDING")
+  paymentRef    String?
+  amountPaid    Int?
+
+  status String @default("AWAITING_APPROVAL")
+
+  createdAt DateTime @default(now())
+
+  payments Payment[]
+  
+  registrationNo    String? @unique
+
+  approvedAt        DateTime?
+   tuitionPaidAt DateTime?
+    // CBT ACCESS
+  cbtPaidAt      DateTime?
+  cbtExpiresAt   DateTime?
+  //cbtAttempts    Int @default(0)
+  cbtAttempts CBTAttempt[]
+}
+
+model Payment {
+  id String @id @default(uuid())
+
+  studentId String
+  student   Student @relation(fields: [studentId], references: [id])
+
+  reference String @unique
+  amount    Int
+  channel   String
+  status    String
+
+  createdAt DateTime @default(now())
+  adminNote String?
+approvedAt DateTime?
+receiptUrl String?
+
+
+}
+
+model Admin {
+  id       String @id @default(uuid())
+  email    String @unique
+  name     String
+  password String
+  role     String @default("ADMIN")
+
+  createdAt DateTime @default(now())
+}
+
+
+
+model Question {
+  id        String @id @default(uuid())
+  exam      String   // WAEC | JAMB
+  subject   String
+  question  String
+  options   Json
+  correct   String
+}
+
+model CBTAttempt {
+  id        String   @id @default(uuid())
+  studentId String
+
+  exam      String?   
+  subjects  Json?     
+
+  score     Int
+  total     Int
+  createdAt DateTime @default(now())
+
+  student Student @relation(fields: [studentId], references: [id])
+}
+
+model CBTQuestion {
+  id        String   @id @default(uuid())
+  exam      String?  
+  subject   String
+  question  String
+  options   Json
+  answer    String?  
+  createdAt DateTime @default(now())
+}
+
