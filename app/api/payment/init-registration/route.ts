@@ -78,7 +78,7 @@ export async function POST(req: Request) {
   //   }),
   // });
   const { email, formData } = await req.json();
-  const amount = 1700 * 100; // Total: 1,700 Naira
+  const amount = 2000 * 100; // Total: 2,00 Naira
 
   const res = await fetch("https://api.paystack.co/transaction/initialize", {
     method: "POST",

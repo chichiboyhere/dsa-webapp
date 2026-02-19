@@ -1,3 +1,4 @@
+//app/api/admin/students/create/route.ts
 import { prisma } from "@/lib/prisma";
 import { NextResponse } from "next/server";
 import { requireAdmin } from "@/lib/requireAdmin";

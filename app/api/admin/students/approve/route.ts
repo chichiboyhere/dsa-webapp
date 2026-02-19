@@ -70,7 +70,7 @@
 //     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
 //   }
 // }
-
+//app/api/admin/students/approve/route.ts
 import { prisma } from "@/lib/prisma";
 import { NextResponse } from "next/server";
 import { requireAdmin } from "@/lib/requireAdmin";
@@ -80,11 +80,21 @@ export async function POST(req: Request) {
     await requireAdmin();
     const { studentId, action, updates } = await req.json();
 
+    // if (action === "REJECTED") {
+    //   await prisma.student.delete({ where: { id: studentId } });
+    //   return NextResponse.json({ ok: true, message: "Student removed" });
+    // }
     if (action === "REJECTED") {
-      await prisma.student.delete({ where: { id: studentId } });
-      return NextResponse.json({ ok: true, message: "Student removed" });
-    }
+      await prisma.student.update({
+        where: { id: studentId },
+        data: {
+          status: "REJECTED",
+          approvedAt: null,
+        },
+      });
 
+      return NextResponse.json({ ok: true, message: "Student rejected" });
+    }
     if (action === "APPROVED") {
       const student = await prisma.student.findUnique({
         where: { id: studentId },
@@ -98,18 +108,48 @@ export async function POST(req: Request) {
       if (!registrationNo) {
         const year = new Date().getFullYear().toString().slice(-2);
         // Find the count of students for THIS year to increment correctly
-        const count = await prisma.student.count({
-          where: { registrationNo: { startsWith: year } },
+        // const count = await prisma.student.count({
+        //   where: { registrationNo: { startsWith: year } },
+        // });
+        // const sequence = String(count + 1).padStart(4, "0");
+        // registrationNo = `${year}${sequence}`;
+        // Find the latest registrationNo for this year
+        const lastStudent = await prisma.student.findFirst({
+          where: {
+            registrationNo: {
+              startsWith: year,
+            },
+          },
+          orderBy: {
+            registrationNo: "desc",
+          },
         });
-        const sequence = String(count + 1).padStart(4, "0");
+
+        let nextNumber = 1;
+
+        if (lastStudent?.registrationNo) {
+          const lastSequence = parseInt(
+            lastStudent.registrationNo.slice(2),
+            10,
+          );
+          nextNumber = lastSequence + 1;
+        }
+
+        const sequence = String(nextNumber).padStart(4, "0");
         registrationNo = `${year}${sequence}`;
       }
 
       // Update student with potential edits + Status change + RegNo
+
+      const sanitizedData = {
+        ...updates,
+        dob: updates?.dob ? new Date(updates.dob) : undefined,
+      };
+
       await prisma.student.update({
         where: { id: studentId },
         data: {
-          ...updates, // Save any changes made by admin during approval
+          ...sanitizedData,
           status: "ACTIVE",
           registrationNo,
           approvedAt: new Date(),
@@ -119,6 +159,7 @@ export async function POST(req: Request) {
       return NextResponse.json({ ok: true, registrationNo });
     }
   } catch (error) {
+    console.error("Approval error:", error);
     return NextResponse.json({ error: "Server Error" }, { status: 500 });
   }
 }

@@ -1,3 +1,4 @@
+//app/register/success/page.tsx
 export default function SuccessPage() {
   return (
     <div className="max-w-xl mx-auto p-6 text-center my-18">

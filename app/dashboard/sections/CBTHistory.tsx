@@ -1,3 +1,4 @@
+// app/dashboard/sections/CBTHistory.tsx
 export default function CBTHistory({ student }: any) {
   const attempts = student.cbtAttempts ?? [];
 

@@ -1,5 +1,6 @@
+//components/registration/StepG.tsx
 "use client";
-
+import { ChevronLeft, ChevronRight } from "lucide-react";
 export default function StepG({ data, prev }: any) {
   const pay = async () => {
     console.log("FINAL REG DATA", data);
@@ -46,22 +47,30 @@ export default function StepG({ data, prev }: any) {
     <div className="max-w-xl mx-auto">
       <h2 className="font-bold text-xl mb-4">SECTION G – PAYMENT</h2>
 
-      <div className="border p-4 rounded">
+      <div className=" p-4  border-2 text-sm rounded-md">
         <p>Registration Fee: ₦1,000</p>
-        <p>Handbook: ₦700</p>
+        <p>Handbook: ₦1000</p>
 
-        <h3 className="font-bold mt-2">Total: ₦1,700</h3>
+        <h3 className="font-bold mt-2">Total: ₦2,000</h3>
       </div>
 
       <p className="mt-3 text-sm">
         You can pay using: • Bank Transfer • Opay • Card • USSD
       </p>
 
-      <div className="flex gap-4 mt-4">
-        <button onClick={prev}>Previous</button>
-
-        <button onClick={pay} className="bg-green-700 text-white px-4 py-2">
-          Pay ₦1,700 Now
+      <div className="flex justify-between items-center">
+        <button
+          type="button"
+          onClick={prev}
+          className="flex items-center gap-2 text-gray-400 font-bold hover:text-gray-600 transition-colors"
+        >
+          <ChevronLeft size={20} /> Back
+        </button>
+        <button
+          onClick={pay}
+          className="bg-green-700 text-white px-10 py-4 rounded-2xl font-black flex items-center gap-2 hover:bg-blue-700 transition-all shadow-xl shadow-blue-100"
+        >
+          Pay ₦2,000 Now
         </button>
       </div>
     </div>

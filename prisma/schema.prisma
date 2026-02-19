@@ -7,6 +7,14 @@ generator client {
   provider = "prisma-client-js"
 }
 
+enum DisciplinaryStatus {
+  SATISFACTORY
+  DISTINCTIVE
+  WORTHY_OF_EMULATION
+  UNDER_WATCH
+  DISCIPLINED
+}
+
 model Student {
   id String @id @default(uuid())
 
@@ -37,8 +45,8 @@ model Student {
   // ----- HEALTH & EMERGENCY -----
   medicalInfo String?
 
-  emergencyName  String
-  emergencyPhone String
+  emergencyName  String?
+  emergencyPhone String?
 
   // ----- ACADEMICS -----
   department String
@@ -70,6 +78,8 @@ model Student {
   cbtExpiresAt   DateTime?
   //cbtAttempts    Int @default(0)
   cbtAttempts CBTAttempt[]
+  disciplinaryStatus DisciplinaryStatus @default(SATISFACTORY)
+  disciplinaryNote   String?             @db.Text
 }
 
 model Payment {

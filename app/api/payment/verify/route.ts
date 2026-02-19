@@ -108,6 +108,8 @@ async function handleRegistrationPayment(data: any) {
       amount: data.amount / 100,
       channel: data.channel,
       status: data.status,
+      adminNote:
+        data.type === "TUITION" ? "Monthly Tuition Fee" : "CBT Portal Access",
     },
   });
 

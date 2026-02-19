@@ -83,7 +83,7 @@ export async function generateReceipt(
   const stampBytes = fs.readFileSync(stampPath);
   const stamp = await pdfDoc.embedPng(stampBytes);
   page.drawImage(stamp, {
-    x: 380,
+    x: 430,
     y: height - 640,
     width: 160,
     height: 60,

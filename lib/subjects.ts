@@ -1,3 +1,4 @@
+//lib/subjects.ts
 export const SUBJECT_CONFIG = {
   WAEC: {
     SCIENCE: {
@@ -50,7 +51,7 @@ export const SUBJECT_CONFIG = {
         "Nigerian Language",
         "Nigerian History",
       ],
-      maxElectives: 5,
+      maxElectives: 4,
     },
   },
 
@@ -61,7 +62,6 @@ export const SUBJECT_CONFIG = {
         "Mathematics",
         "Chemistry",
         "Biology",
-        "Computer studies",
         "Geography",
         "Physical and Health Education",
         "Agriculture",

@@ -122,7 +122,6 @@
 import { prisma } from "@/lib/prisma";
 
 import AdminStudentForm from "@/components/admin/AdminStudentForm";
-import ApproveRejectActions from "./ApproveRejectActions";
 
 // 1. Update your type definition to reflect that params is a Promise
 type Props = {
@@ -156,18 +155,6 @@ export default async function AdminStudentPage({ params }: Props) {
       </h1>
 
       <AdminStudentForm student={student} />
-
-      <div className="mt-8">
-        <h2 className="font-semibold mb-2">Payments</h2>
-        <ul className="text-sm">
-          {student.payments.map((p) => (
-            <li key={p.id}>
-              ₦{p.amount} – {p.channel} – {p.status}
-            </li>
-          ))}
-        </ul>
-      </div>
-      <ApproveRejectActions student={student} />
     </div>
   );
 }

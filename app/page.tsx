@@ -8,7 +8,7 @@ import GalleryHome from "@/components/Gallery";
 
 export default function Home() {
   return (
-    <main className=" bg-slate-50 text-slate-900 min-h-screen ">
+    <main className=" bg-slate-50 text-slate-900 min-h-screen pt-20">
       {/* <OrganizationJsonLd team={team} /> */}
 
       <Hero />

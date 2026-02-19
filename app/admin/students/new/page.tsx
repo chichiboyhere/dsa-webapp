@@ -1,3 +1,4 @@
+//app/admin/students/new
 "use client";
 
 import { useState } from "react";
