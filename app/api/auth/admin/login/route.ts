@@ -104,6 +104,10 @@ export async function POST(req: Request) {
       );
     }
 
+    console.log("Login attempt for:", email);
+    if (!admin) console.log("Admin not found in DB");
+    if (admin && !ok)
+      console.log("Password mismatch for hashed password:", admin.password);
     // Create the JWT with ADMIN role
     const token = await signJWT({ id: admin.id, role: "ADMIN" });
 
