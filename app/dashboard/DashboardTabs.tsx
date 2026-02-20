@@ -8,7 +8,7 @@ import Bio from "./sections/Bio";
 import Payments from "./sections/Payments";
 import CBT from "./sections/CBT";
 import Handbook from "./sections/Handbook";
-import LogoutButton from "@/components/LogoutButton";
+//import LogoutButton from "@/components/LogoutButton";
 import CBTHistory from "./sections/CBTHistory";
 
 const tabs = [
@@ -34,7 +34,7 @@ export default function DashboardTabs({ student }: any) {
             Welcome back, {student.firstName}
           </p>
         </div>
-        <LogoutButton />
+        {/* <LogoutButton /> */}
       </div>
 
       {/* Visual Progress Bar */}
@@ -74,11 +74,11 @@ export default function DashboardTabs({ student }: any) {
 
         {active === "payments" && <Payments student={student} />}
 
-        {active === "cbt" && <CBT student={student} />}
+        {/* {active === "cbt" && <CBT student={student} />} */}
 
         {active === "handbook" && <Handbook />}
 
-        {active === "cbthistory" && <CBTHistory student={student} />}
+        {/* {active === "cbthistory" && <CBTHistory student={student} />} */}
         {/* ... other sections ... */}
       </div>
     </>

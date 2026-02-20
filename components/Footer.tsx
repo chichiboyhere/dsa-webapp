@@ -63,14 +63,14 @@ const Footer = () => {
             Visit Us
           </h4>
           <address className="not-italic text-sm text-gray-400 leading-relaxed">
-            Main Campus: [Insert Lagos Address Here]
+            Main Campus: 8, Liadi-disu Street, Isheri-Oshun, Alimisho,
             <br />
             Lagos, Nigeria.
             <br />
             <br />
-            T: +234 800 123 4567
+            T: +234 7015770234
             <br />
-            E: info@dynamicsuccess.edu.ng
+            E: info@dynamicsuccessacademy.com
           </address>
         </div>
       </div>

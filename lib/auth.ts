@@ -21,6 +21,8 @@
 // lib/auth.ts
 import { SignJWT, jwtVerify } from "jose";
 
+// Define valid roles clearly
+export type UserRole = "ADMIN" | "STUDENT";
 const SECRET = new TextEncoder().encode(
   process.env.JWT_SECRET || "fallback-secret",
 );
@@ -29,7 +31,7 @@ export async function signJWT(payload: { id: string; role: string }) {
   return await new SignJWT(payload)
     .setProtectedHeader({ alg: "HS256" })
     .setIssuedAt()
-    .setExpirationTime("2h")
+    .setExpirationTime("8h")
     .sign(SECRET);
 }
 

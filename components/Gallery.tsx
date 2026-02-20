@@ -6,7 +6,7 @@ const GalleryHome = () => (
     <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
       <div className="relative h-64 rounded-xl overflow-hidden">
         <Image
-          src="/images/gallery-1.jpg"
+          src="/gallery/1.jpg"
           alt="ICT Center"
           fill
           className="object-cover"
@@ -14,7 +14,7 @@ const GalleryHome = () => (
       </div>
       <div className="relative h-64 rounded-xl overflow-hidden">
         <Image
-          src="/images/gallery-2.jpg"
+          src="/gallery/2.jpg"
           alt="Lecture Hall"
           fill
           className="object-cover"
@@ -22,7 +22,7 @@ const GalleryHome = () => (
       </div>
       <div className="relative h-64 rounded-xl overflow-hidden">
         <Image
-          src="/images/gallery-3.jpg"
+          src="/gallery/3.jpg"
           alt="Seminar Session"
           fill
           className="object-cover"

@@ -39,7 +39,7 @@ export default function StepC({ next, prev, defaultValues }: any) {
           >
             <ChevronLeft size={20} /> Back
           </button>
-          <button className="bg-blue-600 text-white px-10 py-4 rounded-2xl font-black flex items-center gap-2 hover:bg-blue-700 transition-all shadow-xl shadow-blue-100">
+          <button className="bg-blue-600 text-white px-10 py-4 rounded-2xl font-black flex items-center gap-2 hover:bg-blue-700 transition-all shadow-xl shadow-blue-100 mt-5">
             Exam <ChevronRight size={20} />
           </button>
         </div>

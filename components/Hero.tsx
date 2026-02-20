@@ -50,7 +50,7 @@ export default function Hero() {
           key={index}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
+          exit={{ opacity: 1 }}
           transition={{ duration: 0.8 }}
           className="absolute inset-0"
         >

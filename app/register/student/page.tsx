@@ -11,6 +11,7 @@ import StepE from "@/components/registration/StepE";
 import StepF from "@/components/registration/StepF";
 import StepG from "@/components/registration/StepG";
 import StepReview from "@/components/registration/StepReview";
+import Link from "next/link";
 
 import { StudentRegistration } from "@/types/registration";
 
@@ -159,6 +160,20 @@ export default function StudentWizard() {
   return (
     <div className="max-w-3xl mx-auto p-6 min-h-screen my-25">
       {/* Header & Progress Bar Section */}
+      <div className="my-2 flex justify-between items-center gap-1.5">
+        <p className="text-gray-400">
+          Already have an account?{" "}
+          <Link href="/login" className="text-blue-600">
+            Sign In
+          </Link>
+        </p>
+        <p className="text-gray-400">
+          Go back to{" "}
+          <Link href="/" className="text-blue-600">
+            Home
+          </Link>
+        </p>
+      </div>
       <div className="mb-10">
         <div className="flex justify-between items-end mb-2">
           <div>
