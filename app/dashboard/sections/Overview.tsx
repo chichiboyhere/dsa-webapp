@@ -2,6 +2,7 @@
 import { getTuitionStatus } from "@/lib/tuition";
 import IDCard from "@/components/dashboard/IDCard";
 
+export const dynamic = "force-dynamic";
 export default function Overview({ student }: any) {
   const tuition = getTuitionStatus(student.tuitionPaidAt);
   const isApproved = student.status === "ACTIVE" && student.registrationNo;

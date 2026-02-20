@@ -3,6 +3,8 @@
 
 import { getCBTStatus } from "@/lib/cbt";
 
+export const dynamic = "force-dynamic";
+
 export default function CBTSection({ student }: any) {
   const cbt = getCBTStatus(student.cbtExpiresAt);
 

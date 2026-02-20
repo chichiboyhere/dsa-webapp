@@ -6,6 +6,7 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 //import Link from "next/link";
 
+export const dynamic = "force-dynamic";
 export default function AdminApprovals() {
   const [students, setStudents] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);

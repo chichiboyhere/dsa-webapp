@@ -2,6 +2,7 @@
 import { prisma } from "@/lib/prisma";
 import { getCurrentUser } from "@/lib/session";
 import { redirect } from "next/navigation";
+export const dynamic = "force-dynamic";
 
 const user = await getCurrentUser();
 

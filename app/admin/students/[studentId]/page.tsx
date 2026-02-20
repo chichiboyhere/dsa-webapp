@@ -3,6 +3,7 @@ import { prisma } from "@/lib/prisma";
 
 import AdminStudentForm from "@/components/admin/AdminStudentForm";
 
+export const dynamic = "force-dynamic";
 // 1. Update your type definition to reflect that params is a Promise
 type Props = {
   params: Promise<{

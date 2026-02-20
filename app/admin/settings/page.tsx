@@ -3,6 +3,8 @@
 
 import { useState } from "react";
 
+export const dynamic = "force-dynamic";
+
 export default function AdminPasswordChange() {
   const [current, setCurrent] = useState("");
   const [next, setNext] = useState("");

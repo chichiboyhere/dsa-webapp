@@ -9,7 +9,7 @@ import Payments from "./sections/Payments";
 import CBT from "./sections/CBT";
 import Handbook from "./sections/Handbook";
 //import LogoutButton from "@/components/LogoutButton";
-import CBTHistory from "./sections/CBTHistory";
+//import CBTHistory from "./sections/CBTHistory";
 
 const tabs = [
   "overview",
@@ -19,6 +19,8 @@ const tabs = [
   "handbook",
   "cbthistory",
 ] as const;
+
+export const dynamic = "force-dynamic";
 
 export default function DashboardTabs({ student }: any) {
   const [active, setActive] = useState<(typeof tabs)[number]>("overview");

@@ -26,6 +26,7 @@ import { AlertCircle } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
+export const dynamic = "force-dynamic";
 export default async function DashboardPage() {
   const student = await getCurrentUser();
 

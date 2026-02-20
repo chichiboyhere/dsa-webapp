@@ -1,4 +1,5 @@
 // app/dashboard/sections/CBTHistory.tsx
+export const dynamic = "force-dynamic";
 export default function CBTHistory({ student }: any) {
   const attempts = student.cbtAttempts ?? [];
 

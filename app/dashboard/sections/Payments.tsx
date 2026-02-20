@@ -7,6 +7,7 @@ import { calculateFee } from "@/lib/pricing"; // Import this to show price in mo
 import ReceiptDownloadButton from "@/components/ReceiptDownloadButton";
 import { Fragment } from "react";
 
+export const dynamic = "force-dynamic";
 export default function Payments({ student }: any) {
   const [loading, setLoading] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);

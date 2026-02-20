@@ -29,6 +29,8 @@
 import { useState } from "react";
 import { Save, Loader2 } from "lucide-react";
 
+export const dynamic = "force-dynamic";
+
 export default function Bio({ student }: any) {
   //const [loading, setLoading] = useState(false);
   const [form, setForm] = useState({
