@@ -169,16 +169,16 @@ async function handleDashboardPayment(data: any) {
     });
   }
 
-  if (type === "CBT") {
-    await prisma.student.update({
-      where: { id: studentId },
-      data: {
-        cbtPaidAt: new Date(),
-        cbtExpiresAt: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000),
-        cbtAttempts: 0,
-      },
-    });
-  }
+  // if (type === "CBT") {
+  //   await prisma.student.update({
+  //     where: { id: studentId },
+  //     data: {
+  //       cbtPaidAt: new Date(),
+  //       cbtExpiresAt: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000),
+  //       cbtAttempts: 0,
+  //     },
+  //   });
+  // }
 
   const receiptData = {
     studentName: `${student.firstName} ${student.surname}`,
