@@ -10,7 +10,14 @@ export async function GET() {
 
   try {
     const payload = await verifyJWT(token);
-    return NextResponse.json({ role: payload.role }); // Returns "ADMIN" or "STUDENT"
+
+    // Add this check to satisfy TypeScript
+    if (!payload) {
+      return NextResponse.json({ role: null }, { status: 401 });
+    }
+
+    // Now TypeScript knows 'payload' isn't null here
+    return NextResponse.json({ role: payload.role });
   } catch {
     return NextResponse.json({ role: null }, { status: 401 });
   }
