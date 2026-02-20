@@ -8,17 +8,19 @@ export async function GET() {
 
   if (!token) return NextResponse.json({ role: null }, { status: 401 });
 
+  // app/api/auth/verify/route.ts
+
   try {
     const payload = await verifyJWT(token);
 
-    // Add this check to satisfy TypeScript
+    // 1. Explicitly check if payload is null
     if (!payload) {
       return NextResponse.json({ role: null }, { status: 401 });
     }
 
-    // Now TypeScript knows 'payload' isn't null here
+    // 2. Now TypeScript knows payload is safe to use
     return NextResponse.json({ role: payload.role });
-  } catch {
+  } catch (error) {
     return NextResponse.json({ role: null }, { status: 401 });
   }
 }
