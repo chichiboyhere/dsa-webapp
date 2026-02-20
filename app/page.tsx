@@ -11,6 +11,20 @@ import ContactSnippet from "@/components/ContactSnippet";
 import Testimonials from "@/components/Testimonials";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Dynamic Success Academy - Home page",
+  description:
+    "The home of academic excellence and success through thorough preparation and a commitment to settle for nothing but the very best",
+  keywords: [
+    "Excellence",
+    "Commitment to Success",
+    "Diligence",
+    "Determination to succeed",
+    "DSA",
+  ],
+};
 
 export default function Home() {
   return (

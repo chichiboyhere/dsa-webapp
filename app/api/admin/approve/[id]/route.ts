@@ -1,10 +1,12 @@
-import { NextResponse } from "next/server";
+//app/api/admin/approve/[id]/route.ts
+import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 
 export async function POST(
-  _req: Request,
-  { params }: { params: { id: string } },
+  request: NextRequest,
+  context: { params: Promise<{ id: string }> },
 ) {
+  const { id } = await context.params;
   const year = new Date().getFullYear().toString().slice(-2);
 
   const lastStudent = await prisma.student.findFirst({
@@ -23,7 +25,7 @@ export async function POST(
   const registrationNo = year + nextNumber.toString().padStart(4, "0");
 
   await prisma.student.update({
-    where: { id: params.id },
+    where: { id: id },
     data: {
       status: "APPROVED",
       registrationNo,
