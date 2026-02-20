@@ -1,18 +1,18 @@
-// app/admin/page.tsx
 import { prisma } from "@/lib/prisma";
 import { getCurrentUser } from "@/lib/session";
 import { redirect } from "next/navigation";
+
 export const dynamic = "force-dynamic";
 
-const user = await getCurrentUser();
-
-// Type guard: Check if user exists and is an Admin (doesn't have a 'status' field like students do)
-// or simply check a property unique to your Admin model.
-if (!user || "status" in user) {
-  redirect("/admin-login");
-}
-
 export default async function AdminPage() {
+  // MOVE THE LOGIC HERE
+  const user = await getCurrentUser();
+
+  // Type guard: Check if user exists and is an Admin
+  if (!user || "status" in user) {
+    redirect("/admin-login");
+  }
+
   const totalStudents = await prisma.student.count();
   const pending = await prisma.student.count({
     where: { status: "AWAITING_APPROVAL" },
