@@ -193,14 +193,6 @@ const AboutPage = () => {
               className="relative bg-white w-full max-w-3xl max-h-[90vh] overflow-y-auto rounded-2xl shadow-2xl animate-in fade-in zoom-in duration-300"
               onClick={(e) => e.stopPropagation()}
             >
-              {/* Close Button */}
-              <button
-                onClick={() => setSelectedMember(null)}
-                className="sticky bottom-4 ml-auto mr-4 text-2xl font-bold text-gray-700 hover:text-red-600 z-10"
-              >
-                ×
-              </button>
-
               <div className="md:flex">
                 {/* Image */}
                 <div className="relative h-64 md:h-auto md:w-1/2">
@@ -232,6 +224,15 @@ const AboutPage = () => {
                       <li key={q}>{q}</li>
                     ))}
                   </ul>
+                </div>
+                {/* Close Button -centered */}
+                <div className="flex justify-center items-center">
+                  <button
+                    onClick={() => setSelectedMember(null)}
+                    className=" p-5 text-2xl font-bold text-white hover:text-red-600 z-10 bg-blue"
+                  >
+                    Close
+                  </button>
                 </div>
               </div>
             </div>
