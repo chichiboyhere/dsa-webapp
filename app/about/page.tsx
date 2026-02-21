@@ -196,7 +196,7 @@ const AboutPage = () => {
               {/* Close Button */}
               <button
                 onClick={() => setSelectedMember(null)}
-                className="sticky top-4 ml-auto mr-4 text-2xl font-bold text-gray-700 hover:text-red-600 z-10"
+                className="sticky bottom-4 ml-auto mr-4 text-2xl font-bold text-gray-700 hover:text-red-600 z-10"
               >
                 ×
               </button>

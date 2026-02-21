@@ -1,74 +1,4 @@
-// //app/admin-login/page.tsx
-// "use client";
-
-// import { useState } from "react";
-// import { useRouter } from "next/navigation";
-// import Link from "next/link";
-// import { useAuth } from "@/context/AuthContext";
-
-// export default function Login() {
-//   const router = useRouter();
-//   const [email, setEmail] = useState("");
-//   const [password, setPassword] = useState("");
-//   const [error, setError] = useState("");
-
-//   const { login } = useAuth();
-//   //setError("");
-
-//   const submit = async () => {
-//     const res = await fetch("/api/auth/admin/login", {
-//       method: "POST",
-//       headers: { "Content-Type": "application/json" },
-//       body: JSON.stringify({ email, password }),
-//     });
-
-//     // if (res.ok) {
-//     //   router.push("/admin");
-//     // }
-//     if (res.ok) {
-//       login("ADMIN"); // This updates the Context role to ADMIN
-//       router.push("/admin");
-//       router.refresh();
-//     } else {
-//       const data = await res.json();
-//       setError(data.error || "Login failed");
-//     }
-//   };
-
-//   return (
-//     <div className="max-w-md mx-auto my-30 p-12 border rounded">
-//       <h1 className="text-xl font-bold mb-4">Admin Login</h1>
-
-//       {error && <p className="text-red-600 mb-2">{error}</p>}
-
-//       <input
-//         className="border p-2 w-full mb-3"
-//         placeholder="Email"
-//         value={email}
-//         onChange={(e) => setEmail(e.target.value)}
-//       />
-
-//       <input
-//         className="border p-2 w-full mb-3"
-//         placeholder="Password"
-//         type="password"
-//         value={password}
-//         onChange={(e) => setPassword(e.target.value)}
-//       />
-
-//       <button onClick={submit} className="bg-blue-600 text-white w-full py-2">
-//         Login
-//       </button>
-//       <p>
-//         Go back to{" "}
-//         <Link href="/" className="text-blue-600">
-//           Home
-//         </Link>
-//       </p>
-//     </div>
-//   );
-// }
-
+// app/admin-login/page.tsx
 "use client";
 
 import { useState, useEffect } from "react";
@@ -152,7 +82,7 @@ export default function AdminLogin() {
                 <input
                   type="email"
                   required
-                  className="w-full pl-10 pr-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-600 outline-none transition bg-gray-50 focus:bg-white"
+                  className="w-full pl-10 pr-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-600 outline-none transition bg-gray-50 focus:bg-white text-black"
                   placeholder="admin@dsa.edu"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
@@ -169,7 +99,7 @@ export default function AdminLogin() {
                 <input
                   type="password"
                   required
-                  className="w-full pl-10 pr-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-600 outline-none transition bg-gray-50 focus:bg-white"
+                  className="w-full pl-10 pr-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-600 outline-none transition bg-gray-50 focus:bg-white text-black"
                   placeholder="••••••••"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
