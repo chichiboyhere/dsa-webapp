@@ -8,8 +8,7 @@ const ContactSnippet = () => (
       <div>
         <h2 className="text-3xl font-bold mb-6">Have Questions?</h2>
         <p className="text-gray-400 mb-8">
-          Visit our campus or reach out to our admissions office today. We are
-          open Monday - Saturday, 8:00 AM to 6:00 PM.
+          Visit us today. We are open Monday - Saturday, 8:00 AM to 6:00 PM.
         </p>
 
         <div className="space-y-4">
@@ -33,7 +32,7 @@ const ContactSnippet = () => (
       <div className="bg-white/5 p-8 rounded-2xl border border-white/10">
         <h3 className="text-xl font-bold mb-4">Quick Inquiry</h3>
         <p className="text-sm text-gray-400 mb-6">
-          Leave your name and number, and we'll call you back.
+          Leave your name and number, and we&apos;ll call you back.
         </p>
         <div className="space-y-4">
           <input

@@ -29,21 +29,23 @@ const ContactPage = () => {
                   Address
                 </p>
                 <p className="text-lg mt-1">
-                  123 Academy Way, Victoria Island / Ikeja, Lagos, Nigeria
+                  8, Liadi-disu Street, Isheri-Oshun, Alimisho, Lagos.
                 </p>
               </div>
               <div>
                 <p className="text-blue-400 text-sm uppercase font-bold tracking-widest">
                   Phone
                 </p>
-                <p className="text-lg mt-1">+234 (0) 800-DYNAMIC</p>
-                <p className="text-lg">+234 (0) 900-SUCCESS</p>
+                <p className="text-lg mt-1">+234 7015770234</p>
+                {/* <p className="text-lg">+234 (0) 900-SUCCESS</p> */}
               </div>
               <div>
                 <p className="text-blue-400 text-sm uppercase font-bold tracking-widest">
                   Email
                 </p>
-                <p className="text-lg mt-1">admissions@dsa.edu.ng</p>
+                <p className="text-lg mt-1">
+                  contact@dynamicsuccessacademy.com
+                </p>
               </div>
             </div>
           </div>
