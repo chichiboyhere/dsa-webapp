@@ -1,3 +1,4 @@
+//app/about/page.tsx
 "use client";
 
 import { useState } from "react";
@@ -11,46 +12,72 @@ const AboutPage = () => {
       name: "Seyi Alade",
       role: "Executive Director",
       image: "/team/ed.jpg",
-      bio: "Seyi ALADE is a seasoned human resources professional and dynamic educator with many years of teaching experience in leading Nigerian schools. He is the Founder and Director of Dynamic Success Academy. He trained as a professional teacher at Tai Solarin University of Education and Corona College of Education, where he earned a B.Sc. (Ed.) in Economics and a Professional Diploma in Educational Leadership and Management (PDELM), respectively. He also holds an M.Sc. in Economics from the University of Lagos, a National Diploma in Accountancy from Lagos State Polytechnic, and an Advanced Diploma in Leadership and Management (Finance option) with Distinction from Tuazama Leadership School of Management, USA.Seyi is a Certified Microfinance Banker (CIBN), an Associate of the Nigerian Institute of Management (Chartered), and an Associate of the Institute of Chartered Economists of Nigeria (ICEN). He is a Fellow of the Institute of Management Consulting (IMC Nigeria), a registered member of the Teachers Registration Council of Nigeria (TRCN), a full member of the Association of Economists and Statisticians of Nigeria, and an Associate Member of the Chartered Institute of Personnel Management of Nigeria (CIPM).Known for his clear, simple, and impactful teaching style, Seyi is highly respected by his students and professional peers.",
+      bio: [
+        "Seyi ALADE is a seasoned human resources professional and dynamic educator with many years of teaching experience in leading Nigerian schools. He is the Founder and Director of *Dynamic Success Academy*.",
+        "He trained as a professional teacher at Tai Solarin University of Education and Corona College of Education, where he earned a B.Sc. (Ed.) in Economics and a Professional Diploma in Educational Leadership and Management (PDELM), respectively. He also holds an M.Sc. in Economics from the University of Lagos, a National Diploma in Accountancy from Lagos State Polytechnic, and an Advanced Diploma in Leadership and Management (Finance option) with Distinction from Tuazama Leadership School of Management, USA.",
+        "Seyi is a Certified Microfinance Banker (CIBN), an Associate of the Nigerian Institute of Management (Chartered), and an Associate of the Institute of Chartered Economists of Nigeria (ICEN). He is a Fellow of the Institute of Management Consulting (IMC Nigeria), a registered member of the Teachers Registration Council of Nigeria (TRCN), a full member of the Association of Economists and Statisticians of Nigeria, and an Associate Member of the Chartered Institute of Personnel Management of Nigeria (CIPM).",
+        "Known for his clear, simple, and impactful teaching style, Seyi is highly respected by his students and professional peers.",
+      ],
       qualifications: [
-        "B.Sc.(Ed)",
-        "M.Sc. Economics",
-        "CIBN, CIMB, CIPM, ICAN, ICEN, IMC, TRCN, CIPM",
+        "M.Sc.",
+        "B.Sc.Ed(Hons) Econs",
+        "ND Acc (Lagos)",
+        "ACIPM",
+        "AMNIM",
+        "MCIB",
+        "TRCN",
+        "PDELM(Corona)",
+        "ACE",
+        "FMAES",
+        "FIMC",
+        "Advd Cert. Leadership & Mgt (Philadelphia, USA)",
       ],
     },
     {
       name: "Olajide Onaolapo",
       role: "Registrar",
       image: "/team/registrar.jpg",
-      bio: "Olajide Onaolapo is a distinguished and seasoned educator with extensive experience across both the private and public sectors in Nigeria. He is a graduate of the University of Lagos and holds a Bachelor of Arts in Education (History), Second Class Honours (Upper Division), as well as a Master of Arts in History and Strategic Studies. A certified member of the Teachers Registration Council of Nigeria (TRCN), he exemplifies academic excellence, professional integrity, and a strong commitment to educational leadership.",
-      qualifications: ["B.A (Ed). Public Admin", "TRCN"],
+      bio: [
+        "Olajide Onaolapo is a distinguished and seasoned educator with extensive experience across both the private and public sectors in Nigeria.",
+        "He is a graduate of the University of Lagos and holds a Bachelor of Arts in Education (History), Second Class Honours (Upper Division), as well as a Master of Arts in History and Strategic Studies. A certified member of the Teachers Registration Council of Nigeria (TRCN), he exemplifies academic excellence, professional integrity, and a strong commitment to educational leadership",
+      ],
+      qualifications: [
+        "M.A History & Strategic Studies",
+        "B.A. Ed(Hons) History",
+        "TRCN",
+      ],
     },
     {
       name: "Babatunde Jikunu",
       role: "Head of ICT Department",
       image: "/team/ict.jpg",
-      bio: "Babatunde JIKUNU, a foremost alumnus of Dynamic Success Academy (2009–2010), is a distinguished graduate of the Federal University of Technology, Akure, Ondo State, Nigeria, where he earned a Bachelor of Engineering in Metallurgical and Materials Engineering. His career in data analytics commenced with a notable achievement, successfully reconciling a large database backlog, streamlining records, and significantly improving data accuracy across medical centres. Through his strong technical expertise and passion for teaching, Babatunde JIKUNU continues to inspire younger generations, fostering innovation, analytical thinking, and excellence in technology-driven education.",
-      qualifications: [
-        "B.Eng Metallurgical and Materials Engineering",
-        "Certified Data Analyst",
+      bio: [
+        "Babatunde JIKUNU, a foremost alumnus of Dynamic Success Academy (2009–2010), is a distinguished graduate of the Federal University of Technology, Akure, Ondo State, Nigeria, where he earned a Bachelor of Engineering in Metallurgical and Materials Engineering.",
+        "His career in data analytics commenced with a notable achievement, successfully reconciling a large database backlog, streamlining records, and significantly improving data accuracy across medical centres.",
+        "Through his strong technical expertise and passion for teaching, Babatunde JIKUNU continues to inspire younger generations, fostering innovation, analytical thinking, and excellence in technology-driven education.",
       ],
+      qualifications: ["B.Eng(FUTA)"],
     },
     {
       name: "Olushola CUMMINGS",
       role: "Head of Arts/Humanities Department",
       image: "/team/cummings.jpg",
-      bio: "Olushola CUMMINGS is a seasoned educator with over three decades of teaching experience, specializing in *Politics, Government, and Christian Religious Studies (CRS). A graduate of Obafemi Awolowo University, Ile-Ife, Osun State, Nigeria, he furthered his studies in missions and theology at Redeemer’s Bible College. He has taught with distinction across leading academic platforms, and his career reflects a deep commitment to *academic excellence, moral instruction, and holistic student development",
-      qualifications: ["B.Sc", "Certified Teacher of Theology"],
+      bio: [
+        "Olushola CUMMINGS is a seasoned educator with over three decades of teaching experience, specializing in *Politics, Government, and Christian Religious Studies (CRS). A graduate of Obafemi Awolowo University, Ile-Ife, Osun State, Nigeria, he furthered his studies in missions and theology at Redeemer’s Bible College.",
+        "He has taught with distinction across leading academic platforms, and his career reflects a deep commitment to *academic excellence, moral instruction, and holistic student development",
+      ],
+      qualifications: ["B.Sc Pol Science", "Diploma & Certified  Theology"],
     },
     {
       name: "Agboola Olayiwola",
       role: "Head of Science Department",
       image: "/team/agboola.jpg",
-      bio: "Agboola Olayiwola is a graduate of Ogun State University, now Olabisi Onabanjo University, where he earned a Bachelor of Agriculture (B.Agric.), majoring in Plant Breeding and Cytogenetics. He is the author of Organic Chemistry Made Easy for Schools and Colleges, a scholarly resource designed to strengthen foundational understanding of organic chemistry among secondary and tertiary learners. A dynamic and experienced educator, Agboola has extensive expertise in teaching Biology and Chemistry. He remains deeply committed to nurturing learners, providing rigorous academic support, and upholding high academic standards, with particular emphasis on the medical and health sciences",
-      qualifications: [
-        "B.Agric Plant Breeding and Cytogenetics",
-        "Certified Teacher and Author",
+      bio: [
+        "Agboola Olayiwola is a graduate of Ogun State University, now Olabisi Onabanjo University, where he earned a Bachelor of Agriculture (B.Agric.), majoring in Plant Breeding and Cytogenetics.",
+        "He is the author of Organic Chemistry Made Easy for Schools and Colleges, a scholarly resource designed to strengthen foundational understanding of organic chemistry among secondary and tertiary learners.",
+        " A dynamic and experienced educator, Agboola has extensive expertise in teaching Biology and Chemistry. He remains deeply committed to nurturing learners, providing rigorous academic support, and upholding high academic standards, with particular emphasis on the medical and health sciences",
       ],
+      qualifications: ["B.Agric(OGUN)"],
     },
   ];
 
@@ -183,7 +210,6 @@ const AboutPage = () => {
         </section>
 
         {/* Profile Modal */}
-        {/* Profile Modal */}
         {selectedMember && (
           <div
             className="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm flex items-center justify-center p-4"
@@ -193,6 +219,14 @@ const AboutPage = () => {
               className="relative bg-white w-full max-w-3xl max-h-[90vh] overflow-y-auto rounded-2xl shadow-2xl animate-in fade-in zoom-in duration-300"
               onClick={(e) => e.stopPropagation()}
             >
+              {/* Close Button */}
+              <button
+                onClick={() => setSelectedMember(null)}
+                className="sticky top-4 ml-auto mr-4 text-2xl font-bold text-gray-700 hover:text-red-600 z-10"
+              >
+                ×
+              </button>
+
               <div className="md:flex">
                 {/* Image */}
                 <div className="relative h-64 md:h-auto md:w-1/2">
@@ -212,9 +246,11 @@ const AboutPage = () => {
                   </h3>
                   <p className="text-blue-600 mb-4">{selectedMember.role}</p>
 
-                  <p className="text-gray-600 text-sm mb-6 leading-relaxed">
-                    {selectedMember.bio}
-                  </p>
+                  <div className="text-gray-600 text-sm mb-6 leading-relaxed space-y-4">
+                    {selectedMember.bio.map((paragraph, index) => (
+                      <p key={index}>{paragraph}</p>
+                    ))}
+                  </div>
 
                   <h4 className="font-bold text-sm uppercase mb-2">
                     Qualifications
@@ -225,15 +261,15 @@ const AboutPage = () => {
                     ))}
                   </ul>
                 </div>
-                {/* Close Button -centered */}
-                <div className="flex justify-center items-center">
-                  <button
-                    onClick={() => setSelectedMember(null)}
-                    className=" p-5 text-2xl font-bold text-white hover:text-red-600 z-10 bg-blue"
-                  >
-                    Close
-                  </button>
-                </div>
+              </div>
+              {/* Close Button -centered */}
+              <div className="flex justify-center items-center">
+                <button
+                  onClick={() => setSelectedMember(null)}
+                  className="my-5 px-4 py-2 text-xl font-bold text-white hover:text-red-600 z-50 bg-blue-700 rounded-3xl"
+                >
+                  Close
+                </button>
               </div>
             </div>
           </div>

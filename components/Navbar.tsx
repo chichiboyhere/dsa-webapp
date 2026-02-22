@@ -24,6 +24,7 @@ const Navbar = () => {
   const navItems = [
     { label: "About Us", href: "/about" },
     { label: "Gallery", href: "/gallery" },
+    { label: "Contact", href: "/contact" },
   ];
 
   useEffect(() => {
@@ -123,6 +124,7 @@ const Navbar = () => {
       </div>
 
       {/* Mobile Menu Overlay */}
+      {/* Mobile Menu Overlay */}
       <AnimatePresence>
         {menuOpen && (
           <motion.div
@@ -130,6 +132,9 @@ const Navbar = () => {
             animate={{ x: 0 }}
             exit={{ x: "100%" }}
             transition={{ type: "tween", duration: 0.3 }}
+            /* FIXED: Removed transparency, used solid white and higher z-index */
+            //   className="fixed inset-0 z-[2000] bg-white flex flex-col p-8 md:hidden shadow-2xl"
+            // >
             className="fixed top-0 left-0 w-screen h-screen z-[9999] bg-white flex flex-col p-8 md:hidden"
           >
             <div className="flex justify-between items-center mb-12">

@@ -5,10 +5,37 @@
 import { useForm, FormProvider } from "react-hook-form";
 import FormInput from "@/components/FormInput";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { z } from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
+
+const stepCSchema = z.object({
+  medicalInfo: z
+    .string()
+    .default("")
+    .refine((val) => val.length > 0, {
+      message:
+        "This field is required. You may type in 'None' if you don't have any medical conditions.",
+    }),
+  emergencyName: z
+    .string()
+    .default("")
+    .refine((val) => val.length > 1, {
+      message: "Please Enter a name",
+    }),
+
+  emergencyPhone: z
+    .string()
+    .default("")
+    .refine((val) => val.length > 10, {
+      message: "Enter a valid phone number",
+    }),
+});
 
 export default function StepC({ next, prev, defaultValues }: any) {
   const methods = useForm({
     defaultValues,
+    resolver: zodResolver(stepCSchema),
+    mode: "onTouched",
   });
 
   const onSubmit = (values: any) => {
