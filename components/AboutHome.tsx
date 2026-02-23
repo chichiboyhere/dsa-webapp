@@ -15,17 +15,19 @@ const AboutHome = () => (
         Our Heritage of Excellence
       </h2>
       <p className="text-gray-600 leading-relaxed mb-6">
-        DSA is more than a tutorial center; it is a launchpad. From mastering
-        O&apos;Level basics to conquering Professional certifications, we
-        provide a structured ecosystem designed for the modern Nigerian student.
+        DSA is more than an academic center; it is a launchpad for academic and
+        professional excellence. From a solid mastery of O&apos;Level
+        foundations to success in professional certifications, we deliver a
+        structured, student-centred ecosystem tailored to the modern Nigerian
+        learner.
       </p>
-      <p className="text-gray-600 leading-relaxed mb-6">
+      {/* <p className="text-gray-600 leading-relaxed mb-6">
         <b>Dynamic Success Academy (DSA)</b>, based in Lagos, is a registered,
         result driven academic centre committed to helping students and
         professionals succeed in key examinations through structured
         instruction, rigorous past question practice, and targeted learning
         support designed to deliver measurable exam success.
-      </p>
+      </p> */}
       <Link href="/about" className="text-blue-600 font-bold hover:underline">
         Learn More →
       </Link>
