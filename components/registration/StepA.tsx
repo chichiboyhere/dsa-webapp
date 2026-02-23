@@ -9,6 +9,8 @@ import Image from "next/image";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 
+//const GENDER_OPTIONS = ["Male", "Female"] as const;
+
 const stepASchema = z
   .object({
     surname: z
@@ -24,9 +26,11 @@ const stepASchema = z
       .default("")
       .refine((val) => val.length > 0, { message: "Middle name is required" }),
     dob: z.string().min(1, "Date of birth is required"),
-    gender: z.enum(["Male", "Female"], {
-      errorMap: () => ({ message: "Please select a gender" }),
-    }),
+
+    //     gender: z.enum(["Male", "Female"], {
+    //   required_error: "Please select a gender",
+    //   invalid_type_error: "Please select a gender",
+    // }),
     address: z
       .string()
       .default("")
