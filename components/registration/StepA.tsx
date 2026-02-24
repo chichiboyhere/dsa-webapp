@@ -31,7 +31,12 @@ const stepASchema = z
       .default("")
       .refine((val) => val.length > 0, { message: "Middle name is required" }),
     dob: z.string().min(1, "Date of birth is required"),
-
+    gender: z
+      .string()
+      .min(1, "Please select a gender")
+      .refine((val) => ["Male", "Female"].includes(val), {
+        message: "Invalid gender",
+      }),
     address: z
       .string()
       .default("")
