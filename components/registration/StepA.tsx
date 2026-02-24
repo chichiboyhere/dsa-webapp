@@ -9,8 +9,13 @@ import Image from "next/image";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 
-//const GENDER_OPTIONS = ["Male", "Female"] as const;
-
+const MAX_FILE_SIZE = 2 * 1024 * 1024; // 2MB
+const ACCEPTED_IMAGE_TYPES = [
+  "image/jpeg",
+  "image/jpg",
+  "image/png",
+  "image/webp",
+];
 const stepASchema = z
   .object({
     surname: z
@@ -26,11 +31,9 @@ const stepASchema = z
       .default("")
       .refine((val) => val.length > 0, { message: "Middle name is required" }),
     dob: z.string().min(1, "Date of birth is required"),
-
-    //     gender: z.enum(["Male", "Female"], {
-    //   required_error: "Please select a gender",
-    //   invalid_type_error: "Please select a gender",
-    // }),
+    gender: z.enum(["Male", "Female"], {
+      errorMap: () => ({ message: "Please select a gender" }),
+    }),
     address: z
       .string()
       .default("")
@@ -71,6 +74,19 @@ const stepASchema = z
       }),
 
     passwordConfirm: z.string(),
+    photo: z
+      .any()
+      .refine((files) => {
+        // If no file is selected but we already have a photoUrl, it's valid
+        if (!files || files.length === 0) return true;
+        return files[0]?.size <= MAX_FILE_SIZE;
+      }, `Max image size is 2MB.`)
+      .refine((files) => {
+        if (!files || files.length === 0) return true;
+        return ACCEPTED_IMAGE_TYPES.includes(files[0]?.type);
+      }, "Only .jpg, .jpeg, .png and .webp formats are supported."),
+
+    photoUrl: z.string().optional(),
   })
   .refine((data) => data.password === data.passwordConfirm, {
     message: "Passwords don't match",
@@ -103,10 +119,9 @@ export default function StepA({ next, defaultValues }: any) {
     !!defaultValues.phone ||
     !!defaultValues.email;
 
-  // We add a jump parameter to the onSubmit handler
-  const handleFormSubmit = (values: any, jumpBack: boolean = false) => {
-    // If jumpBack is true, we tell the parent to go to step 7
-    next(values, jumpBack ? 7 : undefined);
+  // Change handleFormSubmit to just handle the navigation logic
+  const handleFormSubmit = (values: any, jumpToReview: boolean = false) => {
+    next(values, jumpToReview ? 7 : undefined);
   };
 
   const {
@@ -130,15 +145,17 @@ export default function StepA({ next, defaultValues }: any) {
     }
   }, [photoFile]);
 
-  const onSubmit = async (values: any) => {
+  // Update the onSubmit to accept an optional jump parameter
+  const onSubmit = async (values: any, jumpToReview: boolean = false) => {
     if (!preview && (!values.photo || values.photo.length === 0)) {
       return alert("Please upload a passport photograph.");
     }
 
     setUploading(true);
     try {
-      // 4. Conditional Upload
-      // Only upload to Cloudinary/S3 if a NEW file was selected
+      let finalPhotoUrl = defaultValues.photoUrl;
+
+      // Only upload if it's a new File object
       if (values.photo?.[0] instanceof File) {
         const formData = new FormData();
         formData.append("file", values.photo[0]);
@@ -149,15 +166,15 @@ export default function StepA({ next, defaultValues }: any) {
         });
 
         if (!res.ok) throw new Error("Upload failed");
-
         const result = await res.json();
-        values.photoUrl = result.url; // Save the URL for the review step
-      } else {
-        // Keep the old URL if they didn't change the photo
-        values.photoUrl = defaultValues.photoUrl;
+        finalPhotoUrl = result.url;
       }
 
-      next(values);
+      // Crucial: ensure the photoUrl is attached to the values sent to 'next'
+      const submissionData = { ...values, photoUrl: finalPhotoUrl };
+
+      // Call the parent's next function with the correct jump step
+      handleFormSubmit(submissionData, jumpToReview);
     } catch (err) {
       alert("Photo upload failed. Please try again.");
     } finally {
@@ -168,7 +185,8 @@ export default function StepA({ next, defaultValues }: any) {
   return (
     <FormProvider {...methods}>
       <form
-        onSubmit={handleSubmit(onSubmit)}
+        // onSubmit={handleSubmit(onSubmit)}
+        onSubmit={handleSubmit((data) => onSubmit(data, false))}
         className="space-y-6 animate-in fade-in duration-500"
       >
         <div className="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 mb-12">
@@ -178,7 +196,10 @@ export default function StepA({ next, defaultValues }: any) {
 
           {/* Photo Upload UI */}
           <div className="flex flex-col items-center mb-8">
-            <div className="relative w-32 h-32 rounded-3xl overflow-hidden bg-gray-50 border-2 border-dashed border-gray-200 flex items-center justify-center group transition-all hover:border-blue-400">
+            <div
+              className={`relative w-32 h-32 rounded-3xl overflow-hidden bg-gray-50 border-2 border-dashed flex items-center justify-center group transition-all 
+    ${errors.photo ? "border-red-400" : "border-gray-200 hover:border-blue-400"}`}
+            >
               {preview ? (
                 <Image
                   src={preview}
@@ -189,10 +210,15 @@ export default function StepA({ next, defaultValues }: any) {
                 />
               ) : (
                 <Camera
-                  className="text-gray-300 group-hover:text-blue-400"
+                  className={
+                    errors.photo
+                      ? "text-red-400"
+                      : "text-gray-300 group-hover:text-blue-400"
+                  }
                   size={32}
                 />
               )}
+
               <input
                 type="file"
                 {...register("photo")}
@@ -200,8 +226,15 @@ export default function StepA({ next, defaultValues }: any) {
                 accept="image/*"
               />
             </div>
-            <p className="mt-2 text-[10px] font-bold text-gray-400 uppercase tracking-tight">
-              {preview ? "Tap to change photo" : "Tap to upload passport"}
+
+            <p
+              className={`mt-2 text-[10px] font-bold uppercase tracking-tight ${errors.photo ? "text-red-500" : "text-gray-400"}`}
+            >
+              {errors.photo
+                ? String(errors.photo.message)
+                : preview
+                  ? "Tap to change photo"
+                  : "Tap to upload passport"}
             </p>
           </div>
 
@@ -250,18 +283,23 @@ export default function StepA({ next, defaultValues }: any) {
             />
           </div>
         </div>
+
         {isEditing && (
           <button
             type="button"
-            onClick={methods.handleSubmit((data) =>
-              handleFormSubmit(data, true),
-            )}
+            // Use onSubmit wrapper so it uploads the photo first!
+            onClick={handleSubmit((data) => onSubmit(data, true))}
+            disabled={uploading}
             className="bg-gray-800 text-white px-6 py-4 rounded-2xl font-bold flex items-center gap-2 hover:bg-black transition-all shadow-lg"
           >
-            <Save size={18} /> Update & Review
+            {uploading ? (
+              <Loader2 className="animate-spin" size={18} />
+            ) : (
+              <Save size={18} />
+            )}
+            Update & Review
           </button>
         )}
-
         <button
           type="submit"
           disabled={uploading}
