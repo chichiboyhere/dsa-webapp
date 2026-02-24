@@ -31,9 +31,7 @@ const stepASchema = z
       .default("")
       .refine((val) => val.length > 0, { message: "Middle name is required" }),
     dob: z.string().min(1, "Date of birth is required"),
-    gender: z.enum(["Male", "Female"], {
-      errorMap: () => ({ message: "Please select a gender" }),
-    }),
+
     address: z
       .string()
       .default("")
