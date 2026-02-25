@@ -1,49 +1,51 @@
-// components/Testimonials.tsx
-import { Quote } from "lucide-react";
+import Image from "next/image";
 
 const testimonials = [
-  {
-    name: "Chinedu Okoro",
-    score: "324 JAMB",
-    text: "The CBT practice at DSA was the game changer. I felt like I was writing a mock exam every day until the real one became easy.",
-    image: "/student1.jpg",
-  },
-  {
-    name: "Amina Yusuf",
-    score: "7 Distinctions (WAEC)",
-    text: "The teachers here don't just teach subjects; they teach you how to approach questions. I'm now studying Medicine at UI.",
-    image: "/student2.jpg",
-  },
+  "/testimonial/t1.jpg",
+  "/testimonial/t2.jpg",
+  "/testimonial/t3.jpg",
+  "/testimonial/t4.jpg",
+  "/testimonial/t5.jpg",
+  "/testimonial/t6.jpg",
 ];
 
 const Testimonials = () => (
-  <section className="py-20 bg-blue-900 text-white px-6">
-    <div className="max-w-6xl mx-auto">
-      <div className="text-center mb-16">
-        <h2 className="text-3xl md:text-4xl font-bold mb-4">Success Stories</h2>
-        <p className="text-blue-200">
+  <section
+    className="relative py-24 bg-gradient-to-b from-blue-950 to-blue-900 text-white px-6"
+    id="testimonials"
+  >
+    <div className="max-w-7xl mx-auto">
+      {/* Header */}
+      <div className="text-center mb-20">
+        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
+          Success Stories
+        </h2>
+        <p className="text-blue-200 max-w-2xl mx-auto">
           Join 500+ students who achieved their dreams with DSA.
+        </p>
+        <p className="text-blue-300 mt-2">
+          Meet our best-performing students of the 2024/25 session.
         </p>
       </div>
 
-      <div className="grid md:grid-cols-2 gap-8">
+      {/* Grid */}
+      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-10">
         {testimonials.map((t, i) => (
           <div
             key={i}
-            className="bg-white/10 backdrop-blur-sm p-8 rounded-2xl relative border border-white/10"
+            className="group relative rounded-3xl overflow-hidden shadow-xl transition-all duration-500 hover:-translate-y-3 hover:shadow-2xl"
           >
-            <Quote className="absolute top-4 right-4 text-blue-400 w-8 h-8 opacity-50" />
-            <p className="text-lg italic mb-6">"{t.text}"</p>
-            <div className="flex items-center gap-4">
-              <div className="w-12 h-12 bg-blue-500 rounded-full" />{" "}
-              {/* Replace with Image */}
-              <div>
-                <h4 className="font-bold">{t.name}</h4>
-                <span className="text-sm bg-blue-600 px-2 py-1 rounded text-white font-mono uppercase">
-                  {t.score}
-                </span>
-              </div>
-            </div>
+            <div className="absolute inset-0 bg-white/5 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition duration-500" />
+
+            <Image
+              src={t}
+              alt={`Student testimonial ${i + 1}`}
+              width={600}
+              height={800}
+              className="object-cover w-full h-full transition-transform duration-700 group-hover:scale-105"
+              loading="lazy"
+              sizes="(max-width: 768px) 100vw, 33vw"
+            />
           </div>
         ))}
       </div>

@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 const GalleryHome = () => (
   <section className="py-20 bg-gray-50 px-6">
-    <h2 className="text-center text-3xl font-bold mb-12">Life at DSA</h2>
+    <h2 className="text-center text-3xl font-bold mb-12">Our Notable Alumni</h2>
     <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
       <div className="relative h-64 rounded-xl overflow-hidden">
         <Image

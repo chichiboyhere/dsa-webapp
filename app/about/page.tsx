@@ -70,7 +70,7 @@ const AboutPage = () => {
     },
     {
       name: "Agboola Olayiwola",
-      role: "Head of Science Department",
+      role: "Ag. Head of Science Department",
       image: "/team/agboola.jpg",
       bio: [
         "Agboola Olayiwola is a graduate of Ogun State University, now Olabisi Onabanjo University, where he earned a Bachelor of Agriculture (B.Agric.), majoring in Plant Breeding and Cytogenetics.",

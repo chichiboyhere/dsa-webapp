@@ -1,4 +1,10 @@
 import Link from "next/link";
+import {
+  FaFacebookF,
+  FaInstagram,
+  FaXTwitter,
+  FaYoutube,
+} from "react-icons/fa6";
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
@@ -72,6 +78,33 @@ const Footer = () => {
             <br />
             E: info@dynamicsuccessacademy.com
           </address>
+          {/* Socials */}
+          <div className="z-50 flex flex-1 gap-5 md:gap-4 cursor-pointer mt-2">
+            <Link
+              href="https://facebook.com/share/1C72SPCtQp/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-12 h-12 flex items-center justify-center rounded-full bg-yellow-400 text-blue-900 transition-transform duration-300 hover:scale-110 hover:bg-yellow-500"
+            >
+              <FaFacebookF />
+            </Link>
+            <Link
+              href="https://youtube.com/@dynamicsuccessacademy2009?si=slQBoej8mkyOpgrr"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-12 h-12 flex items-center justify-center rounded-full bg-yellow-400 text-blue-900 transition-transform duration-300 hover:scale-110 hover:bg-yellow-500"
+            >
+              <FaYoutube />
+            </Link>
+            <Link
+              href="https://twitter.com/#"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-12 h-12 flex items-center justify-center rounded-full bg-yellow-400 text-blue-900 transition-transform duration-300 hover:scale-110 hover:bg-yellow-500"
+            >
+              <FaXTwitter />
+            </Link>
+          </div>
         </div>
       </div>
 

@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 
 const slides = [
@@ -12,6 +13,7 @@ const slides = [
       "Structured preparation for WAEC, JAMB & CBT examinations delivered by experienced educators in a focused environment.",
     primaryBtn: "Explore Programs",
     secondaryBtn: "Apply Now",
+    links: ["/programs", "/register/student"],
   },
   {
     image: "/hero2.png",
@@ -20,6 +22,7 @@ const slides = [
       "Interactive CBT practice, technology-enabled instruction, and personalized academic support to help students stay ahead.",
     primaryBtn: "Try CBT Practice",
     secondaryBtn: "View Facilities",
+    links: ["/#", "/#"],
   },
   {
     image: "/hero3.jpg",
@@ -28,13 +31,13 @@ const slides = [
       "We empower students with discipline, mentorship, and strategies that consistently deliver academic success.",
     primaryBtn: "See Success Stories",
     secondaryBtn: "Contact Us",
+    links: ["/#testimonials", "/contact"],
   },
 ];
 
 export default function Hero() {
   const [index, setIndex] = useState(0);
 
-  // Auto slide every 6 seconds
   useEffect(() => {
     const timer = setInterval(() => {
       setIndex((prev) => (prev + 1) % slides.length);
@@ -42,6 +45,8 @@ export default function Hero() {
 
     return () => clearInterval(timer);
   }, []);
+
+  const currentSlide = slides[index];
 
   return (
     <section className="relative w-full h-[85vh] overflow-hidden z-0">
@@ -54,19 +59,16 @@ export default function Hero() {
           transition={{ duration: 0.8 }}
           className="absolute inset-0"
         >
-          {/* Background Image */}
           <Image
-            src={slides[index].image}
+            src={currentSlide.image}
             alt="Hero slide"
             fill
             priority
             className="object-cover"
           />
 
-          {/* Dark Overlay */}
           <div className="absolute inset-0 bg-black/55" />
 
-          {/* Content */}
           <div className="relative z-10 flex items-center h-full max-w-7xl mx-auto px-6">
             <div className="text-white max-w-3xl">
               <motion.h1
@@ -75,7 +77,7 @@ export default function Hero() {
                 transition={{ duration: 0.8 }}
                 className="text-3xl md:text-5xl lg:text-6xl font-extrabold leading-tight mb-6"
               >
-                {slides[index].heading}
+                {currentSlide.heading}
               </motion.h1>
 
               <motion.p
@@ -84,23 +86,31 @@ export default function Hero() {
                 transition={{ duration: 1 }}
                 className="text-base md:text-lg lg:text-xl opacity-90 mb-8"
               >
-                {slides[index].subtext}
+                {currentSlide.subtext}
               </motion.p>
 
               <div className="flex flex-col sm:flex-row gap-4">
-                <button className="px-8 py-3 bg-blue-600 hover:bg-blue-700 transition rounded-xl font-semibold shadow-lg">
-                  {slides[index].primaryBtn}
-                </button>
-                <button className="px-8 py-3 bg-white/10 backdrop-blur border border-white/40 hover:bg-white/20 transition rounded-xl font-semibold">
-                  {slides[index].secondaryBtn}
-                </button>
+                {/* Primary */}
+                <Link
+                  href={currentSlide.links[0]}
+                  className="px-8 py-3 bg-blue-600 hover:bg-blue-700 transition rounded-xl font-semibold shadow-lg text-center"
+                >
+                  {currentSlide.primaryBtn}
+                </Link>
+
+                {/* Secondary */}
+                <Link
+                  href={currentSlide.links[1]}
+                  className="px-8 py-3 bg-white/10 backdrop-blur border border-white/40 hover:bg-white/20 transition rounded-xl font-semibold text-center"
+                >
+                  {currentSlide.secondaryBtn}
+                </Link>
               </div>
             </div>
           </div>
         </motion.div>
       </AnimatePresence>
 
-      {/* Navigation Dots */}
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-3 z-20">
         {slides.map((_, i) => (
           <button
