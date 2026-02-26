@@ -16,8 +16,9 @@ export default function Payments({ student }: any) {
   );
 
   const handleOpenModal = (type: "TUITION" | "CBT") => {
-    setSelectedType(type);
-    setModalOpen(true);
+    // setSelectedType(type);
+    // setModalOpen(true);
+    alert("Payment for tuition is currently disabled!");
   };
 
   const initiatePayment = async () => {
