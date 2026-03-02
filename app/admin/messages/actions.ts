@@ -8,5 +8,5 @@ export async function markAsRead(id: string) {
     where: { id },
     data: { isRead: true },
   });
-  revalidatePath("/admin"); // This updates the red badge in the layout!
+  revalidatePath("/admin");
 }
