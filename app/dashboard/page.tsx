@@ -1,36 +1,24 @@
-// // app/dashboard/page.tsx
-// import { getCurrentUser } from "@/lib/session";
-// import DashboardTabs from "./DashboardTabs";
-// import { redirect } from "next/navigation";
-
-// export default async function DashboardPage() {
-//   const student = await getCurrentUser();
-
-//   // Guard clause: proxy.ts usually handles this, but this is a safe fallback
-//   if (!student || !("status" in student)) {
-//     redirect("/login");
-//   }
-
-//   return (
-//     <div className="p-8 max-w-6xl mx-auto my-10">
-//       <h1 className="text-xl">Welcome, {student.name}</h1>
-//       <DashboardTabs student={student} />
-//     </div>
-//   );
-// }
+// app/dashboard/page.tsx
 
 import { getCurrentUser } from "@/lib/session";
 import DashboardTabs from "./DashboardTabs";
 import { redirect } from "next/navigation";
-import { AlertCircle } from "lucide-react";
+import { AlertCircle, ChevronRight } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { prisma } from "@/lib/prisma";
+import NoticeBoard from "./sections/NoticeBoard";
+import Link from "next/link";
 
-export const dynamic = "force-dynamic";
 export default async function DashboardPage() {
   const student = await getCurrentUser();
 
   if (!student || !("status" in student)) redirect("/login");
+
+  const broadcasts = await prisma.broadcast.findMany({
+    orderBy: { createdAt: "desc" },
+    take: 5,
+  });
 
   return (
     <>
@@ -53,8 +41,46 @@ export default async function DashboardPage() {
               </div>
             </div>
           )}
+          {broadcasts.length > 0 && (
+            <div className="my-10 flex ">
+              <h1 className="text-2xl font-bold text-gray-800  ">
+                Announcement
+              </h1>
+            </div>
+          )}
+          {broadcasts.map((msg) => (
+            <div
+              key={msg.id}
+              className="border-l-4 border-blue-600 bg-white p-6 my-4 rounded-r-2xl shadow-sm hover:shadow-md transition-shadow group"
+            >
+              <div className="flex justify-between items-start mb-2">
+                <h4 className="font-bold text-slate-900 group-hover:text-blue-600 transition-colors">
+                  {msg.title}
+                </h4>
+                <span className="text-[10px] text-slate-400 whitespace-nowrap ml-4">
+                  {new Date(msg.createdAt).toLocaleDateString()}
+                </span>
+              </div>
 
-          <DashboardTabs student={student} />
+              {/* The Preview: Limits to 2 lines and hides overflow */}
+              <div
+                className="text-sm text-slate-600 line-clamp-2 mb-4 prose prose-sm"
+                dangerouslySetInnerHTML={{ __html: msg.content }}
+              />
+
+              <Link
+                href={`/dashboard/announcements/${msg.id}`}
+                className="text-xs font-bold text-blue-600 flex items-center gap-1 hover:underline"
+              >
+                Read Full Announcement <ChevronRight size={14} />
+              </Link>
+            </div>
+          ))}
+
+          <DashboardTabs
+            student={student}
+            noticeBoardContent={<NoticeBoard />}
+          />
         </div>
       </div>
       <Footer />

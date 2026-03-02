@@ -8,8 +8,9 @@ import Bio from "./sections/Bio";
 import Payments from "./sections/Payments";
 import CBT from "./sections/CBT";
 import Handbook from "./sections/Handbook";
-//import LogoutButton from "@/components/LogoutButton";
-//import CBTHistory from "./sections/CBTHistory";
+import Codeofconduct from "./sections/Codeofconduct";
+
+import CBTHistory from "./sections/CBTHistory";
 
 const tabs = [
   "overview",
@@ -18,11 +19,17 @@ const tabs = [
   "cbt",
   "handbook",
   "cbthistory",
+  "noticeboard",
+  "codeofconduct",
 ] as const;
 
-export const dynamic = "force-dynamic";
-
-export default function DashboardTabs({ student }: any) {
+export default function DashboardTabs({
+  student,
+  noticeBoardContent,
+}: {
+  student: any;
+  noticeBoardContent: React.ReactNode;
+}) {
   const [active, setActive] = useState<(typeof tabs)[number]>("overview");
 
   return (
@@ -79,6 +86,9 @@ export default function DashboardTabs({ student }: any) {
         {/* {active === "cbt" && <CBT student={student} />} */}
 
         {active === "handbook" && <Handbook />}
+
+        {active === "codeofconduct" && <Codeofconduct />}
+        {active === "noticeboard" && noticeBoardContent}
 
         {/* {active === "cbthistory" && <CBTHistory student={student} />} */}
         {/* ... other sections ... */}

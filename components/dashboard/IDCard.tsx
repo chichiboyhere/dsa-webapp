@@ -21,9 +21,14 @@ export default function IDCard({ student }: any) {
         <div className="relative flex justify-between items-start mb-4">
           <div>
             <h2 className="text-lg font-black tracking-tighter uppercase leading-tight">
-              DSA Academy
+              Dynamic Success Academy
             </h2>
-            <p className="text-[8px] opacity-80 font-bold uppercase tracking-widest">
+            <p>
+              <i className="text-[8px] opacity-80 ">
+                ... raising academic geniuses
+              </i>
+            </p>
+            <p className="text-[8px] opacity-80 font-bold uppercase tracking-widest  ">
               Student Identification
             </p>
           </div>

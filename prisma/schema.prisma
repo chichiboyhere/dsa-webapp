@@ -110,6 +110,7 @@ model Admin {
   role     String @default("ADMIN")
 
   createdAt DateTime @default(now())
+  broadcasts Broadcast[] 
 }
 
 
@@ -144,6 +145,29 @@ model CBTQuestion {
   question  String
   options   Json
   answer    String?  
+  createdAt DateTime @default(now())
+}
+
+
+// --- NEW: CONTACT MESSAGES FROM VISITORS ---
+model ContactMessage {
+  id        String   @id @default(uuid())
+  name      String
+  email     String
+  interest  String   // To map to your <select> options
+  message   String   @db.Text
+  isRead    Boolean  @default(false)
+  createdAt DateTime @default(now())
+}
+
+// --- NEW: BROADCASTS FROM ADMIN TO STUDENTS ---
+model Broadcast {
+  id        String   @id @default(uuid())
+  title     String
+  content   String   @db.Text // Use Text for Rich Text data
+  category  String   @default("GENERAL") // e.g., URGENT, ACADEMIC, EVENT
+  adminId   String
+  admin     Admin    @relation(fields: [adminId], references: [id])
   createdAt DateTime @default(now())
 }
 

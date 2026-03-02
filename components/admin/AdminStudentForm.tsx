@@ -28,6 +28,9 @@ export default function AdminStudentForm({ student }: { student: any }) {
     nationality: student.nationality,
     state: student.state,
     lga: student.lga,
+    medicalInfo: student.medicalInfo,
+    emergencyName: student.emergencyName,
+    emergencyPhone: student.emergencyPhone,
     guardianName: student.guardianName,
     relationship: student.relationship,
     guardianAddress: student.guardianAddress,
@@ -104,36 +107,6 @@ export default function AdminStudentForm({ student }: { student: any }) {
       subjects: form.subjects.filter((_: any, i: number) => i !== index),
     });
   };
-
-  // const handleAction = async (action: "APPROVED" | "REJECTED" | "UPDATE") => {
-  //   const confirmMsg =
-  //     action === "UPDATE"
-  //       ? "Update student records?"
-  //       : `Are you sure you want to ${action.toLowerCase()} this student?`;
-
-  //   if (!confirm(confirmMsg)) return;
-
-  //   setLoading(true);
-  //   // Note: If action is "UPDATE", use your update endpoint, else use approve endpoint
-  //   const endpoint =
-  //     action === "UPDATE"
-  //       ? "/api/admin/students/update"
-  //       : "/api/admin/students/approve";
-
-  //   const res = await fetch(endpoint, {
-  //     method: "POST",
-  //     headers: { "Content-Type": "application/json" },
-  //     body: JSON.stringify({ studentId: student.id, action, updates: form }),
-  //   });
-
-  //   if (res.ok) {
-  //     router.push(action === "UPDATE" ? "/admin/students" : "/admin/approvals");
-  //     router.refresh();
-  //   } else {
-  //     alert("Failed to process request");
-  //     setLoading(false);
-  //   }
-  // };
 
   return (
     <div className="bg-white shadow-xl rounded-2xl overflow-hidden border border-gray-100 max-w-5xl mx-auto my-8">
@@ -394,6 +367,54 @@ export default function AdminStudentForm({ student }: { student: any }) {
                   value={form.guardianAddress}
                   onChange={(e) =>
                     setForm({ ...form, guardianAddress: e.target.value })
+                  }
+                />
+              </div>
+              <div className="space-y-1">
+                <label className="text-xs font-bold text-gray-400 uppercase">
+                  Parent/Guardian Phone
+                </label>
+                <input
+                  className="w-full bg-gray-50 border-b-2 border-transparent p-3 rounded-lg focus:bg-white focus:border-blue-500 transition-all outline-none"
+                  value={form.guardianPhone}
+                  onChange={(e) =>
+                    setForm({ ...form, guardianPhone: e.target.value })
+                  }
+                />
+              </div>
+              <div className="space-y-1">
+                <label className="text-xs font-bold text-gray-400 uppercase">
+                  Medical Information
+                </label>
+                <input
+                  className="w-full bg-gray-50 border-b-2 border-transparent p-3 rounded-lg focus:bg-white focus:border-blue-500 transition-all outline-none"
+                  value={form.medicalInfo}
+                  onChange={(e) =>
+                    setForm({ ...form, medicalInfo: e.target.value })
+                  }
+                />
+              </div>
+              <div className="space-y-1">
+                <label className="text-xs font-bold text-gray-400 uppercase">
+                  Emergency Name
+                </label>
+                <input
+                  className="w-full bg-gray-50 border-b-2 border-transparent p-3 rounded-lg focus:bg-white focus:border-blue-500 transition-all outline-none"
+                  value={form.emergencyName}
+                  onChange={(e) =>
+                    setForm({ ...form, emergencyName: e.target.value })
+                  }
+                />
+              </div>
+              <div className="space-y-1">
+                <label className="text-xs font-bold text-gray-400 uppercase">
+                  Emergency Phone
+                </label>
+                <input
+                  className="w-full bg-gray-50 border-b-2 border-transparent p-3 rounded-lg focus:bg-white focus:border-blue-500 transition-all outline-none"
+                  value={form.emergencyPhone}
+                  onChange={(e) =>
+                    setForm({ ...form, emergencyPhone: e.target.value })
                   }
                 />
               </div>

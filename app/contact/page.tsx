@@ -1,6 +1,10 @@
+//app/contact/page.tsx
+
 import Image from "next/image";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { sendContactMessage } from "./actions";
+import ContactForm from "@/components/ContactForm";
 
 const ContactPage = () => {
   return (
@@ -56,34 +60,9 @@ const ContactPage = () => {
 
             {/* Form */}
             <div className="p-12 md:w-3/5 bg-white">
-              <form className="grid grid-cols-1 gap-6">
-                <div className="grid md:grid-cols-2 gap-6">
-                  <input
-                    type="text"
-                    placeholder="Full Name"
-                    className="border-b-2 border-gray-200 py-3 focus:border-blue-600 outline-none transition"
-                  />
-                  <input
-                    type="email"
-                    placeholder="Email Address"
-                    className="border-b-2 border-gray-200 py-3 focus:border-blue-600 outline-none transition"
-                  />
-                </div>
-                <select className="border-b-2 border-gray-200 py-3 focus:border-blue-600 outline-none transition bg-transparent">
-                  <option>Interested in...</option>
-                  <option>O&apos;Level (JAMB/WAEC)</option>
-                  <option>A&apos;Level (JUPEB/IJMB)</option>
-                  <option>Professional Exams (ICAN)</option>
-                </select>
-                <textarea
-                  rows={4}
-                  placeholder="Your Message"
-                  className="border-b-2 border-gray-200 py-3 focus:border-blue-600 outline-none transition"
-                ></textarea>
-                <button className="bg-blue-600 text-white font-bold py-4 px-8 rounded-lg hover:bg-blue-700 transition self-start">
-                  Send Message
-                </button>
-              </form>
+              <div className="p-12 md:w-3/5 bg-white">
+                <ContactForm />
+              </div>
             </div>
           </div>
         </section>
