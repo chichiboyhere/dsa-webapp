@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { sendContactMessage } from "./actions";
+//import { sendContactMessage } from "./actions";
 import ContactForm from "@/components/ContactForm";
 
 const ContactPage = () => {

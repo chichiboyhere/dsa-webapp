@@ -1,40 +1,14 @@
-// //app/dashboard/sections/Bio.tsx
-// export default function Bio({ student }: any) {
-//   return (
-//     <div className="grid grid-cols-2 gap-4">
-//       <p>
-//         <strong>Full Name:</strong> {student.firstName} {student.surname}
-//       </p>
-//       <p>
-//         <strong>Email:</strong> {student.email}
-//       </p>
-//       <p>
-//         <strong>Phone:</strong> {student.phone}
-//       </p>
-//       <p>
-//         <strong>Gender:</strong> {student.gender}
-//       </p>
-//       <p>
-//         <strong>State:</strong> {student.state}
-//       </p>
-//       <p>
-//         <strong>LGA:</strong> {student.lga}
-//       </p>
-//     </div>
-//   );
-// }
-
 // app/dashboard/sections/Bio.tsx
 "use client";
 import { useState } from "react";
 import { Save, Loader2 } from "lucide-react";
 
-export const dynamic = "force-dynamic";
-
 export default function Bio({ student }: any) {
   //const [loading, setLoading] = useState(false);
   const [form, setForm] = useState({
     phone: student.phone,
+    currentPassword: "",
+    newPassword: "",
     address: student.address || "",
   });
 
@@ -67,6 +41,7 @@ export default function Bio({ student }: any) {
   return (
     <div className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {/* {msg && <p className="text-sm mb-3">{msg}</p>} */}
         <section className="space-y-4">
           <h3 className="text-xs font-black text-gray-400 uppercase tracking-widest">
             Personal Info
@@ -99,6 +74,36 @@ export default function Bio({ student }: any) {
               <input
                 value={form.phone}
                 onChange={(e) => setForm({ ...form, phone: e.target.value })}
+                className="w-full mt-1 p-2.5 bg-gray-50 border rounded-xl text-sm outline-none focus:ring-2 focus:ring-blue-500"
+              />
+              <label className="text-[10px] text-gray-400 uppercase font-bold">
+                Current Password
+              </label>
+              <input
+                value={form.currentPassword}
+                type="password"
+                onChange={(e) =>
+                  setForm({ ...form, currentPassword: e.target.value })
+                }
+                className="w-full mt-1 p-2.5 bg-gray-50 border rounded-xl text-sm outline-none focus:ring-2 focus:ring-blue-500"
+              />
+              <label className="text-[10px] text-gray-400 uppercase font-bold">
+                New Password
+              </label>
+              <input
+                value={form.newPassword}
+                type="password"
+                onChange={(e) =>
+                  setForm({ ...form, newPassword: e.target.value })
+                }
+                className="w-full mt-1 p-2.5 bg-gray-50 border rounded-xl text-sm outline-none focus:ring-2 focus:ring-blue-500"
+              />
+              <label className="text-[10px] text-gray-400 uppercase font-bold">
+                Address
+              </label>
+              <input
+                value={form.address}
+                onChange={(e) => setForm({ ...form, address: e.target.value })}
                 className="w-full mt-1 p-2.5 bg-gray-50 border rounded-xl text-sm outline-none focus:ring-2 focus:ring-blue-500"
               />
             </div>

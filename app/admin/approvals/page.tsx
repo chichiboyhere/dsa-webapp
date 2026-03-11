@@ -4,9 +4,7 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-//import Link from "next/link";
 
-export const dynamic = "force-dynamic";
 export default function AdminApprovals() {
   const [students, setStudents] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
@@ -57,7 +55,9 @@ export default function AdminApprovals() {
               <p className="font-semibold text-lg text-gray-800">
                 {s.firstName} {s.surname}
               </p>
-              <p className="text-sm text-gray-600 break-words">{s.email}</p>
+              <p className="text-sm text-gray-600 wrap-break-words">
+                {s.email}
+              </p>
               <p className="text-sm text-gray-500 mt-1">
                 {s.department} – {s.exam}
               </p>

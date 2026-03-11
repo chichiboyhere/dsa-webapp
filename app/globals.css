@@ -28,3 +28,40 @@ body {
 html {
   scroll-behavior: smooth;
 }
+
+@media print {
+  /* Hide everything except the main content */
+  nav,
+  aside,
+  footer,
+  .print-hidden,
+  button,
+  form {
+    display: none !important;
+  }
+
+  /* Reset layout constraints for the printable area */
+  main {
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+  }
+
+  /* Ensure the table takes up the full width and has visible borders */
+  .printable-table {
+    width: 100% !important;
+    border-collapse: collapse !important;
+  }
+
+  .printable-table th,
+  .printable-table td {
+    border: 1px solid #e2e8f0 !important;
+    padding: 8px !important;
+    color: black !important;
+  }
+
+  /* Show high-quality images (ID photos) */
+  img {
+    -webkit-print-color-adjust: exact;
+  }
+}

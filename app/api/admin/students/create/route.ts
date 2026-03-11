@@ -1,4 +1,5 @@
 //app/api/admin/students/create/route.ts
+
 import { prisma } from "@/lib/prisma";
 import { NextResponse } from "next/server";
 import { requireAdmin } from "@/lib/requireAdmin";
@@ -21,28 +22,57 @@ export async function POST(req: Request) {
       );
     }
 
-    // 2. Generate Registration Number (YYXXXX)
+    // 2. Robust Registration Number Generation (Matches your Approval logic)
     const year = new Date().getFullYear().toString().slice(-2);
-    const count = await prisma.student.count({
+    const lastStudent = await prisma.student.findFirst({
       where: { registrationNo: { startsWith: year } },
+      orderBy: { registrationNo: "desc" },
     });
 
-    const sequence = String(count + 1).padStart(4, "0");
-    const registrationNo = `${year}${sequence}`;
+    let nextNumber = 1;
+    if (lastStudent?.registrationNo) {
+      const lastSequence = parseInt(lastStudent.registrationNo.slice(2), 10);
+      nextNumber = lastSequence + 1;
+    }
+    const registrationNo = `${year}${String(nextNumber).padStart(4, "0")}`;
 
-    // 3. Hash a default password (e.g., surname in lowercase)
+    // 3. Hash default password
     const hashedPassword = await bcrypt.hash(data.surname.toLowerCase(), 10);
 
-    // 4. Create Student
+    // 4. Sanitize and Create Student
+    // We explicitly destructure to avoid passing UI state (like 'loading') to Prisma
     const newStudent = await prisma.student.create({
       data: {
-        ...data,
+        surname: data.surname,
+        firstName: data.firstName,
+        middleName: data.middleName || null,
+        email: data.email,
         password: hashedPassword,
-        registrationNo,
-        status: "ACTIVE", // Admin-created students are active by default
-        approvedAt: new Date(),
-        // Ensure subjects are handled as JSON
+        dob: new Date(data.dob),
+        gender: data.gender,
+        address: data.address,
+        phone: data.phone,
+        nationality: data.nationality,
+        state: data.state,
+        lga: data.lga,
+        photoUrl: data.photoUrl || null,
+        guardianName: data.guardianName,
+        guardianPhone: data.guardianPhone,
+        guardianAddress: data.guardianAddress,
+        relationship: data.relationship,
+        medicalInfo: data.medicalInfo || null,
+        emergencyName: data.emergencyName || null,
+        emergencyPhone: data.emergencyPhone || null,
+        department: data.department,
+        exam: data.exam,
         subjects: data.subjects || [],
+        tradeSubject: data.tradeSubject || null,
+        registrationNo,
+        status: "ACTIVE",
+        approvedAt: new Date(),
+        // Default values for other required schema fields
+        agreedToConduct: true,
+        role: "STUDENT",
       },
     });
 
@@ -52,8 +82,9 @@ export async function POST(req: Request) {
     });
   } catch (error: any) {
     console.error("CREATE_STUDENT_ERROR:", error);
+    // Log the specific Prisma error for debugging
     return NextResponse.json(
-      { error: "Failed to create student" },
+      { error: error.message || "Failed to create student" },
       { status: 500 },
     );
   }

@@ -98,20 +98,21 @@ const Navbar = () => {
           {!isLoading && role ? (
             <LogoutButton />
           ) : (
-            <Link
-              href="/login"
-              className="flex items-center gap-2 bg-blue-50 text-blue-900 px-5 py-2 rounded-full hover:bg-blue-100 transition border border-blue-100"
-            >
-              Login
-            </Link>
+            <>
+              <Link
+                href="/login"
+                className="flex items-center gap-2 bg-blue-50 text-blue-900 px-5 py-2 rounded-full hover:bg-blue-100 transition border border-blue-100"
+              >
+                Login
+              </Link>
+              <Link
+                href="/register/student"
+                className="bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700 transition shadow-md active:scale-95"
+              >
+                Enroll Now
+              </Link>
+            </>
           )}
-
-          <Link
-            href="/register/student"
-            className="bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700 transition shadow-md active:scale-95"
-          >
-            Enroll Now
-          </Link>
         </div>
 
         {/* Mobile Toggle Button */}
@@ -124,7 +125,7 @@ const Navbar = () => {
       </div>
 
       {/* Mobile Menu Overlay */}
-      {/* Mobile Menu Overlay */}
+
       <AnimatePresence>
         {menuOpen && (
           <motion.div

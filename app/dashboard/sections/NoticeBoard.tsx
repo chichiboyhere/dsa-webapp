@@ -53,7 +53,7 @@ export default async function NoticeBoard() {
               dangerouslySetInnerHTML={{ __html: post.content }}
             />
 
-            <div className="mt-3 flex items-center gap-1 text-xs font-bold text-blue-600 opacity-0 group-hover:opacity-100 transition-opacity">
+            <div className="mt-3 flex items-center gap-1 text-xs font-bold text-blue-600 md:opacity-0 group-hover:opacity-100 transition-opacity">
               <Link
                 href={`/dashboard/announcements/${post.id}`}
                 className="text-xs font-bold text-blue-600 flex items-center gap-1 hover:underline"

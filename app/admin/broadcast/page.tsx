@@ -1,19 +1,4 @@
 //app/admin/broadcast/page.tsx
-// import { signJWT } from "@/lib/auth";
-// import BroadcastEditor from "@/components/admin/BroadcastEditor";
-
-// export default async function AdminBroadcast() {
-//   const admin = await signJWT({ role: "ADMIN" });
-//   return (
-//     <div className="px-4 sm:px-6 py-12 my-12 min-h-screen bg-gray-50">
-//       <h1 className="text-2xl font-bold mb-8 text-gray-800">Admin Broadcast</h1>
-
-//       <div className="space-y-6">
-//         <BroadcastEditor adminId={admin?.id || "default-admin-id"} />
-//       </div>
-//     </div>
-//   );
-// }
 
 import { cookies } from "next/headers";
 import { verifyJWT } from "@/lib/auth";

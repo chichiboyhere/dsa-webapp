@@ -1,6 +1,7 @@
 import { prisma } from "@/lib/prisma";
 import { getCurrentUser } from "@/lib/session";
 import { redirect } from "next/navigation";
+import Link from "next/link";
 
 export const dynamic = "force-dynamic";
 
@@ -20,7 +21,15 @@ export default async function AdminPage() {
 
   return (
     <div>
-      <h1 className="text-2xl font-bold mb-6">Admin Dashboard</h1>
+      <div className="flex justify-between items-center mb-10">
+        <h1 className="text-2xl font-bold ">Admin Dashboard</h1>
+
+        <Link href="/admin/students/new">
+          <button className="flex items-center justify-center gap-2 px-5 py-2 bg-blue-800 text-white rounded-xl hover:bg-black shadow-lg transition-all font-bold">
+            Add New Student
+          </button>
+        </Link>
+      </div>
 
       <div className="grid grid-cols-2 gap-6 max-w-2xl">
         <div className="border bg-white p-6 rounded">
