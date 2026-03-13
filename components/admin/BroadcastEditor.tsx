@@ -1,20 +1,38 @@
-//components/admin/BroadcastEditor.tsx
+// components/admin/BroadcastEditor.tsx
 "use client";
 import dynamic from "next/dynamic";
-import { useState, useRef, useMemo } from "react";
+import { useState, useRef, useMemo, forwardRef } from "react";
 import "react-quill-new/dist/quill.snow.css";
 
-// We use dynamic import for Quill to avoid SSR issues
-const ReactQuill = dynamic(() => import("react-quill-new"), {
-  ssr: false,
-  loading: () => <div className="h-64 bg-gray-100 animate-pulse rounded-xl" />,
-});
+// 1. Create a wrapper that explicitly handles the ref
+const QuillWrapper = dynamic(
+  async () => {
+    const { default: RQ } = await import("react-quill-new");
+
+    const ForwardedQuill = forwardRef((props: any, ref) => (
+      <RQ ref={ref} {...props} />
+    ));
+
+    // This line fixes the ESLint "display name" error
+    ForwardedQuill.displayName = "QuillWrapper";
+
+    return ForwardedQuill;
+  },
+  {
+    ssr: false,
+    loading: () => (
+      <div className="h-64 bg-gray-100 animate-pulse rounded-xl" />
+    ),
+  },
+);
 
 export default function BroadcastEditor({ adminId }: { adminId: string }) {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const [loading, setLoading] = useState(false);
-  const quillRef = useRef<any>(null); // Reference to the editor instance
+
+  // Use 'any' here to match the internal Quill instance methods
+  const quillRef = useRef<any>(null);
 
   // --- Multimedia Handler Logic ---
   const imageHandler = () => {
@@ -125,7 +143,7 @@ export default function BroadcastEditor({ adminId }: { adminId: string }) {
       <div className="h-80 mb-16">
         {" "}
         {/* Increased height for better editing */}
-        <ReactQuill
+        <QuillWrapper
           ref={quillRef}
           theme="snow"
           value={content}
