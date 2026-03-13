@@ -17,7 +17,7 @@ export default async function DashboardPage() {
 
   const broadcasts = await prisma.broadcast.findMany({
     orderBy: { createdAt: "desc" },
-    take: 5,
+    take: 3,
   });
 
   return (

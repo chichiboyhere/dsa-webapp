@@ -6,7 +6,7 @@ import Link from "next/link";
 export default async function NoticeBoard() {
   const broadcasts = await prisma.broadcast.findMany({
     orderBy: { createdAt: "desc" },
-    take: 3,
+
     include: { admin: { select: { name: true } } },
   });
 
