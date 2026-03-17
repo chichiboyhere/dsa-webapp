@@ -150,7 +150,7 @@ export default function BroadcastEditor({ adminId }: { adminId: string }) {
           onChange={setContent}
           modules={modules}
           formats={formats}
-          className="h-full rounded-xl"
+          className="h-full rounded-xl text-black"
           placeholder="Type your announcement and use the image icon to upload files..."
         />
       </div>

@@ -139,38 +139,37 @@ export default function CreateStudentPage() {
               </p>
             </div>
 
-            {/* Input fields... similar to your code but using setForm consistently */}
             <input
               placeholder="First Name"
               required
-              className="w-full p-2 border rounded"
+              className="w-full p-2 border rounded text-black"
               value={form.firstName}
               onChange={(e) => setForm({ ...form, firstName: e.target.value })}
             />
             <input
               placeholder="Middle Name"
               required
-              className="w-full p-2 border rounded"
+              className="w-full p-2 border rounded text-black"
               onChange={(e) => setForm({ ...form, middleName: e.target.value })}
             />
             <input
               placeholder="Surname"
               required
-              className="w-full p-2 border rounded"
+              className="w-full p-2 border rounded text-black"
               onChange={(e) => setForm({ ...form, surname: e.target.value })}
             />
             <input
               type="email"
               placeholder="Email Address"
               required
-              className="w-full p-2 border rounded"
+              className="w-full p-2 border rounded text-black"
               onChange={(e) => setForm({ ...form, email: e.target.value })}
             />
             <input
               type="date"
               placeholder="DOB"
               required
-              className="w-full p-2 border rounded"
+              className="w-full p-2 border rounded text-black"
               onChange={(e) => setForm({ ...form, dob: e.target.value })}
             />
             <div className="flex flex-wrap gap-4">
@@ -198,19 +197,19 @@ export default function CreateStudentPage() {
             <input
               placeholder="Phone Number"
               required
-              className="w-full p-2 border rounded"
+              className="w-full p-2 border rounded text-black"
               onChange={(e) => setForm({ ...form, phone: e.target.value })}
             />
             <input
               placeholder="Residential Address"
               required
-              className="w-full p-2 border rounded"
+              className="w-full p-2 border rounded text-black"
               onChange={(e) => setForm({ ...form, address: e.target.value })}
             />
             <input
               placeholder="Nationality"
               required
-              className="w-full p-2 border rounded"
+              className="w-full p-2 border rounded text-black"
               onChange={(e) =>
                 setForm({ ...form, nationality: e.target.value })
               }
@@ -218,14 +217,14 @@ export default function CreateStudentPage() {
             <input
               placeholder="State"
               required
-              className="w-full p-2 border rounded"
+              className="w-full p-2 border rounded text-black"
               onChange={(e) => setForm({ ...form, state: e.target.value })}
             />
 
             <input
               placeholder="LGA"
               required
-              className="w-full p-2 border rounded"
+              className="w-full p-2 border rounded text-black"
               onChange={(e) => setForm({ ...form, lga: e.target.value })}
             />
           </section>
@@ -236,7 +235,7 @@ export default function CreateStudentPage() {
             </h2>
 
             <select
-              className="w-full p-2 border rounded"
+              className="w-full p-2 border rounded text-black"
               onChange={(e) => setForm({ ...form, department: e.target.value })}
             >
               <option value="">Select Department</option>
@@ -246,7 +245,7 @@ export default function CreateStudentPage() {
             </select>
 
             <select
-              className="w-full p-2 border rounded"
+              className="w-full p-2 border rounded text-black"
               required
               onChange={(e) => setForm({ ...form, exam: e.target.value })}
             >
@@ -285,7 +284,7 @@ export default function CreateStudentPage() {
                 <input
                   value={newSubject}
                   onChange={(e) => setNewSubject(e.target.value)}
-                  className="flex-1 p-2 border rounded text-sm"
+                  className="flex-1 p-2 border rounded text-sm text-black"
                   placeholder="Add Subject"
                 />
                 <button
@@ -340,7 +339,7 @@ export default function CreateStudentPage() {
             <input
               placeholder="Parent/Guardian Name"
               required
-              className="w-full p-2 border rounded"
+              className="w-full p-2 border rounded text-black"
               onChange={(e) =>
                 setForm({ ...form, guardianName: e.target.value })
               }
@@ -348,7 +347,7 @@ export default function CreateStudentPage() {
             <input
               placeholder="Parent/Guardian Phone"
               required
-              className="w-full p-2 border rounded"
+              className="w-full p-2 border rounded text-black"
               onChange={(e) =>
                 setForm({ ...form, guardianPhone: e.target.value })
               }
@@ -356,7 +355,7 @@ export default function CreateStudentPage() {
             <input
               placeholder="Parent/Guardian Address"
               required
-              className="w-full p-2 border rounded"
+              className="w-full p-2 border rounded text-black"
               onChange={(e) =>
                 setForm({ ...form, guardianAddress: e.target.value })
               }
@@ -364,7 +363,7 @@ export default function CreateStudentPage() {
             <input
               placeholder="Relationship to Student"
               required
-              className="w-full p-2 border rounded"
+              className="w-full p-2 border rounded text-black"
               onChange={(e) =>
                 setForm({ ...form, relationship: e.target.value })
               }
@@ -378,7 +377,7 @@ export default function CreateStudentPage() {
             <input
               placeholder="Medical Condition"
               required
-              className="w-full p-2 border rounded"
+              className="w-full p-2 border rounded text-black"
               onChange={(e) =>
                 setForm({ ...form, medicalInfo: e.target.value })
               }
@@ -386,7 +385,7 @@ export default function CreateStudentPage() {
             <input
               placeholder="Emergency Contact Name"
               required
-              className="w-full p-2 border rounded"
+              className="w-full p-2 border rounded text-black"
               onChange={(e) =>
                 setForm({ ...form, emergencyName: e.target.value })
               }
@@ -394,7 +393,7 @@ export default function CreateStudentPage() {
             <input
               placeholder="Emergency Contact Phone"
               required
-              className="w-full p-2 border rounded"
+              className="w-full p-2 border rounded text-black"
               onChange={(e) =>
                 setForm({ ...form, emergencyPhone: e.target.value })
               }

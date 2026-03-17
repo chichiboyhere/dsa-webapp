@@ -19,11 +19,13 @@ export default function AdminApprovals() {
       });
   }, []);
 
-  if (loading) return <p>Loading…</p>;
+  if (loading) return <p className="text-black">Loading…</p>;
   if (!students.length)
     return (
       <div className="flex items-center justify-center h-screen">
-        <p className="text-xl font-semibold">No pending registrations 🎉</p>
+        <p className="text-xl font-semibold text-black">
+          No pending registrations 🎉
+        </p>
       </div>
     );
 

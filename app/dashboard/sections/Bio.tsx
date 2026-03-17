@@ -74,7 +74,7 @@ export default function Bio({ student }: any) {
               <input
                 value={form.phone}
                 onChange={(e) => setForm({ ...form, phone: e.target.value })}
-                className="w-full mt-1 p-2.5 bg-gray-50 border rounded-xl text-sm outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full mt-1 p-2.5 bg-gray-50 border rounded-xl text-sm outline-none focus:ring-2 focus:ring-blue-500 text-black"
               />
               <label className="text-[10px] text-gray-400 uppercase font-bold">
                 Current Password
@@ -85,7 +85,7 @@ export default function Bio({ student }: any) {
                 onChange={(e) =>
                   setForm({ ...form, currentPassword: e.target.value })
                 }
-                className="w-full mt-1 p-2.5 bg-gray-50 border rounded-xl text-sm outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full mt-1 p-2.5 bg-gray-50 border rounded-xl text-sm outline-none focus:ring-2 focus:ring-blue-500 text-black"
               />
               <label className="text-[10px] text-gray-400 uppercase font-bold">
                 New Password
@@ -96,7 +96,7 @@ export default function Bio({ student }: any) {
                 onChange={(e) =>
                   setForm({ ...form, newPassword: e.target.value })
                 }
-                className="w-full mt-1 p-2.5 bg-gray-50 border rounded-xl text-sm outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full mt-1 p-2.5 bg-gray-50 border rounded-xl text-sm outline-none focus:ring-2 focus:ring-blue-500 text-black"
               />
               <label className="text-[10px] text-gray-400 uppercase font-bold">
                 Address
@@ -104,7 +104,7 @@ export default function Bio({ student }: any) {
               <input
                 value={form.address}
                 onChange={(e) => setForm({ ...form, address: e.target.value })}
-                className="w-full mt-1 p-2.5 bg-gray-50 border rounded-xl text-sm outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full mt-1 p-2.5 bg-gray-50 border rounded-xl text-sm outline-none focus:ring-2 focus:ring-blue-500 text-black"
               />
             </div>
             <button

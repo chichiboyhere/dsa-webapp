@@ -20,7 +20,7 @@ export default function AdminSidebar({
             <Link
               key={link.href}
               href={link.href}
-              className="relative flex items-center gap-2 px-5 py-2.5 bg-gray-50 rounded-2xl text-sm font-bold border"
+              className="relative flex items-center gap-2 px-5 py-2.5 bg-gray-50 rounded-2xl text-sm font-bold border text-gray-700"
             >
               {link.icon} <span>{link.label}</span>
               {link.label === "Messages" && unreadCount > 0 && (

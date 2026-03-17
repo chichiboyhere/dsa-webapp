@@ -26,12 +26,12 @@ export default async function AdminStudentPage({ params }: Props) {
   });
 
   if (!student) {
-    return <p>Student not found</p>;
+    return <p className="text-red-500">Student not found</p>;
   }
 
   return (
     <div>
-      <h1 className="text-xl font-bold mb-4">
+      <h1 className="text-xl font-bold mb-4 text-black">
         Student Profile – {student.firstName} {student.surname}
       </h1>
 

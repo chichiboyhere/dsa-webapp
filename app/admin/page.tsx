@@ -21,8 +21,8 @@ export default async function AdminPage() {
 
   return (
     <div>
-      <div className="flex justify-between items-center mb-10">
-        <h1 className="text-2xl font-bold ">Admin Dashboard</h1>
+      <div className="flex justify-between items-center mb-10 bg-slate-50">
+        <h1 className="text-2xl font-bold text-black">Admin Dashboard</h1>
 
         <Link href="/admin/students/new">
           <button className="flex items-center justify-center gap-2 px-5 py-2 bg-blue-800 text-white rounded-xl hover:bg-black shadow-lg transition-all font-bold">

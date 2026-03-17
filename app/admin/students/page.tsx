@@ -43,7 +43,7 @@ export default async function AdminStudentsPage({
     <div className="space-y-6">
       {/* HEADER: Hidden when printing */}
       <div className="flex justify-between items-center print:hidden">
-        <h1 className="text-2xl font-bold">Approved Students</h1>
+        <h1 className="text-2xl font-bold text-black">Approved Students</h1>
         <PrintButton />
       </div>
 
@@ -57,7 +57,7 @@ export default async function AdminStudentsPage({
           name="q"
           defaultValue={q}
           placeholder="Search name or Reg No..."
-          className="w-full pl-10 pr-4 py-2 bg-white border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none transition-all shadow-sm"
+          className="w-full pl-10 pr-4 py-2 bg-white border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none transition-all shadow-sm text-black"
         />
       </form>
 
@@ -101,7 +101,7 @@ export default async function AdminStudentsPage({
                 <td className="px-6 py-4 font-mono text-blue-600 font-bold">
                   {s.registrationNo}
                 </td>
-                <td className="px-6 py-4">{s.department}</td>
+                <td className="px-6 py-4 text-black">{s.department}</td>
 
                 {/* ACTIONS: We hide these specifically when printing */}
                 <td className="px-6 py-4 text-right print-hidden">

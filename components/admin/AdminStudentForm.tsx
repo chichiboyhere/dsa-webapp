@@ -157,7 +157,7 @@ export default function AdminStudentForm({ student }: { student: any }) {
                   Disciplinary Standing
                 </label>
                 <select
-                  className="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none transition-all"
+                  className="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none transition-all text-black"
                   value={form.disciplinaryStatus}
                   onChange={(e) =>
                     setForm({ ...form, disciplinaryStatus: e.target.value })
@@ -179,7 +179,7 @@ export default function AdminStudentForm({ student }: { student: any }) {
                     Disciplinary Notes
                   </label>
                   <textarea
-                    className="w-full mt-1 p-3 bg-red-50 border border-red-100 rounded-xl text-sm focus:ring-2 focus:ring-red-500 outline-none"
+                    className="w-full mt-1 p-3 bg-red-50 border border-red-100 rounded-xl text-sm focus:ring-2 focus:ring-red-500 outline-none text-black"
                     placeholder="Provide details for the watch list..."
                     rows={4}
                     value={form.disciplinaryNote}
@@ -200,7 +200,7 @@ export default function AdminStudentForm({ student }: { student: any }) {
                   First Name
                 </label>
                 <input
-                  className="w-full bg-gray-50 border-b-2 border-transparent p-3 rounded-lg focus:bg-white focus:border-blue-500 transition-all outline-none"
+                  className="w-full bg-gray-50 border-b-2 border-transparent p-3 rounded-lg focus:bg-white focus:border-blue-500 transition-all outline-none text-black"
                   value={form.firstName}
                   onChange={(e) =>
                     setForm({ ...form, firstName: e.target.value })
@@ -212,7 +212,7 @@ export default function AdminStudentForm({ student }: { student: any }) {
                   Middle Name
                 </label>
                 <input
-                  className="w-full bg-gray-50 border-b-2 border-transparent p-3 rounded-lg focus:bg-white focus:border-blue-500 transition-all outline-none"
+                  className="w-full bg-gray-50 border-b-2 border-transparent p-3 rounded-lg focus:bg-white focus:border-blue-500 transition-all outline-none text-black"
                   value={form.middleName}
                   onChange={(e) =>
                     setForm({ ...form, middleName: e.target.value })
@@ -224,7 +224,7 @@ export default function AdminStudentForm({ student }: { student: any }) {
                   Surname
                 </label>
                 <input
-                  className="w-full bg-gray-50 border-b-2 border-transparent p-3 rounded-lg focus:bg-white focus:border-blue-500 transition-all outline-none"
+                  className="w-full bg-gray-50 border-b-2 border-transparent p-3 rounded-lg focus:bg-white focus:border-blue-500 transition-all outline-none text-black"
                   value={form.surname}
                   onChange={(e) =>
                     setForm({ ...form, surname: e.target.value })
@@ -237,7 +237,7 @@ export default function AdminStudentForm({ student }: { student: any }) {
                 </label>
                 <input
                   type="date"
-                  className="w-full bg-gray-50 border-b-2 border-transparent p-3 rounded-lg focus:bg-white focus:border-blue-500 transition-all outline-none"
+                  className="w-full bg-gray-50 border-b-2 border-transparent p-3 rounded-lg focus:bg-white focus:border-blue-500 transition-all outline-none text-black"
                   value={form.dob}
                   onChange={(e) => setForm({ ...form, dob: e.target.value })}
                 />
@@ -275,7 +275,7 @@ export default function AdminStudentForm({ student }: { student: any }) {
                   Email Address
                 </label>
                 <input
-                  className="w-full bg-gray-50 border-b-2 border-transparent p-3 rounded-lg focus:bg-white focus:border-blue-500 transition-all outline-none text-gray-500"
+                  className="w-full bg-gray-50 border-b-2 border-transparent p-3 rounded-lg focus:bg-white focus:border-blue-500 transition-all outline-none text-black"
                   value={form.email}
                   disabled
                 />
@@ -285,7 +285,7 @@ export default function AdminStudentForm({ student }: { student: any }) {
                   Phone Number
                 </label>
                 <input
-                  className="w-full bg-gray-50 border-b-2 border-transparent p-3 rounded-lg focus:bg-white focus:border-blue-500 transition-all outline-none"
+                  className="w-full bg-gray-50 border-b-2 border-transparent p-3 rounded-lg focus:bg-white focus:border-blue-500 transition-all outline-none text-black"
                   value={form.phone}
                   onChange={(e) => setForm({ ...form, phone: e.target.value })}
                 />
@@ -295,7 +295,7 @@ export default function AdminStudentForm({ student }: { student: any }) {
                   Address
                 </label>
                 <input
-                  className="w-full bg-gray-50 border-b-2 border-transparent p-3 rounded-lg focus:bg-white focus:border-blue-500 transition-all outline-none"
+                  className="w-full bg-gray-50 border-b-2 border-transparent p-3 rounded-lg focus:bg-white focus:border-blue-500 transition-all outline-none text-black"
                   value={form.address}
                   onChange={(e) =>
                     setForm({ ...form, address: e.target.value })
@@ -307,7 +307,7 @@ export default function AdminStudentForm({ student }: { student: any }) {
                   Nationality
                 </label>
                 <input
-                  className="w-full bg-gray-50 border-b-2 border-transparent p-3 rounded-lg focus:bg-white focus:border-blue-500 transition-all outline-none"
+                  className="w-full bg-gray-50 border-b-2 border-transparent p-3 rounded-lg focus:bg-white focus:border-blue-500 transition-all outline-none text-black"
                   value={form.nationality}
                   onChange={(e) =>
                     setForm({ ...form, nationality: e.target.value })
@@ -319,7 +319,7 @@ export default function AdminStudentForm({ student }: { student: any }) {
                   State
                 </label>
                 <input
-                  className="w-full bg-gray-50 border-b-2 border-transparent p-3 rounded-lg focus:bg-white focus:border-blue-500 transition-all outline-none"
+                  className="w-full bg-gray-50 border-b-2 border-transparent p-3 rounded-lg focus:bg-white focus:border-blue-500 transition-all outline-none text-black"
                   value={form.state}
                   onChange={(e) => setForm({ ...form, state: e.target.value })}
                 />
@@ -329,7 +329,7 @@ export default function AdminStudentForm({ student }: { student: any }) {
                   Local Govt Area
                 </label>
                 <input
-                  className="w-full bg-gray-50 border-b-2 border-transparent p-3 rounded-lg focus:bg-white focus:border-blue-500 transition-all outline-none"
+                  className="w-full bg-gray-50 border-b-2 border-transparent p-3 rounded-lg focus:bg-white focus:border-blue-500 transition-all outline-none text-black"
                   value={form.lga}
                   onChange={(e) => setForm({ ...form, lga: e.target.value })}
                 />
@@ -339,7 +339,7 @@ export default function AdminStudentForm({ student }: { student: any }) {
                   Parent/Guardian
                 </label>
                 <input
-                  className="w-full bg-gray-50 border-b-2 border-transparent p-3 rounded-lg focus:bg-white focus:border-blue-500 transition-all outline-none"
+                  className="w-full bg-gray-50 border-b-2 border-transparent p-3 rounded-lg focus:bg-white focus:border-blue-500 transition-all outline-none text-black"
                   value={form.guardianName}
                   onChange={(e) =>
                     setForm({ ...form, guardianName: e.target.value })
@@ -351,7 +351,7 @@ export default function AdminStudentForm({ student }: { student: any }) {
                   Relationship
                 </label>
                 <input
-                  className="w-full bg-gray-50 border-b-2 border-transparent p-3 rounded-lg focus:bg-white focus:border-blue-500 transition-all outline-none"
+                  className="w-full bg-gray-50 border-b-2 border-transparent p-3 rounded-lg focus:bg-white focus:border-blue-500 transition-all outline-none text-black"
                   value={form.relationship}
                   onChange={(e) =>
                     setForm({ ...form, relationship: e.target.value })
@@ -363,7 +363,7 @@ export default function AdminStudentForm({ student }: { student: any }) {
                   Parent/Guardian Address
                 </label>
                 <input
-                  className="w-full bg-gray-50 border-b-2 border-transparent p-3 rounded-lg focus:bg-white focus:border-blue-500 transition-all outline-none"
+                  className="w-full bg-gray-50 border-b-2 border-transparent p-3 rounded-lg focus:bg-white focus:border-blue-500 transition-all outline-none text-black"
                   value={form.guardianAddress}
                   onChange={(e) =>
                     setForm({ ...form, guardianAddress: e.target.value })
@@ -375,7 +375,7 @@ export default function AdminStudentForm({ student }: { student: any }) {
                   Parent/Guardian Phone
                 </label>
                 <input
-                  className="w-full bg-gray-50 border-b-2 border-transparent p-3 rounded-lg focus:bg-white focus:border-blue-500 transition-all outline-none"
+                  className="w-full bg-gray-50 border-b-2 border-transparent p-3 rounded-lg focus:bg-white focus:border-blue-500 transition-all outline-none text-black"
                   value={form.guardianPhone}
                   onChange={(e) =>
                     setForm({ ...form, guardianPhone: e.target.value })
@@ -387,7 +387,7 @@ export default function AdminStudentForm({ student }: { student: any }) {
                   Medical Information
                 </label>
                 <input
-                  className="w-full bg-gray-50 border-b-2 border-transparent p-3 rounded-lg focus:bg-white focus:border-blue-500 transition-all outline-none"
+                  className="w-full bg-gray-50 border-b-2 border-transparent p-3 rounded-lg focus:bg-white focus:border-blue-500 transition-all outline-none text-black"
                   value={form.medicalInfo}
                   onChange={(e) =>
                     setForm({ ...form, medicalInfo: e.target.value })
@@ -399,7 +399,7 @@ export default function AdminStudentForm({ student }: { student: any }) {
                   Emergency Name
                 </label>
                 <input
-                  className="w-full bg-gray-50 border-b-2 border-transparent p-3 rounded-lg focus:bg-white focus:border-blue-500 transition-all outline-none"
+                  className="w-full bg-gray-50 border-b-2 border-transparent p-3 rounded-lg focus:bg-white focus:border-blue-500 transition-all outline-none text-black"
                   value={form.emergencyName}
                   onChange={(e) =>
                     setForm({ ...form, emergencyName: e.target.value })
@@ -411,7 +411,7 @@ export default function AdminStudentForm({ student }: { student: any }) {
                   Emergency Phone
                 </label>
                 <input
-                  className="w-full bg-gray-50 border-b-2 border-transparent p-3 rounded-lg focus:bg-white focus:border-blue-500 transition-all outline-none"
+                  className="w-full bg-gray-50 border-b-2 border-transparent p-3 rounded-lg focus:bg-white focus:border-blue-500 transition-all outline-none text-black"
                   value={form.emergencyPhone}
                   onChange={(e) =>
                     setForm({ ...form, emergencyPhone: e.target.value })
@@ -475,7 +475,7 @@ export default function AdminStudentForm({ student }: { student: any }) {
               )}
               <div className="flex gap-2">
                 <input
-                  className="flex-1 bg-white border border-gray-200 rounded-xl px-4 py-2 text-sm focus:ring-2 focus:ring-blue-500 outline-none"
+                  className="flex-1 bg-white border border-gray-200 rounded-xl px-4 py-2 text-sm focus:ring-2 focus:ring-blue-500 outline-none text-black"
                   placeholder="e.g. Physics"
                   value={newSubject}
                   onChange={(e) => setNewSubject(e.target.value)}

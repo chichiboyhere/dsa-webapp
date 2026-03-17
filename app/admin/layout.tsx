@@ -48,7 +48,7 @@ export default async function AdminLayout({
   return (
     <>
       <Navbar />
-      <div className="min-h-screen flex flex-col md:flex-row bg-slate-50 mt-20">
+      <div className="min-h-screen flex flex-col md:flex-row bg-slate-50 mt-20 ">
         <AdminSidebar unreadCount={unreadCount} navLinks={navLinks} />
         <main className="flex-1 p-4 md:p-8 w-full max-w-7xl mx-auto">
           {children}

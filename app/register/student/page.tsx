@@ -73,7 +73,7 @@ export default function StudentWizard() {
   };
 
   return (
-    <div className="max-w-3xl mx-auto p-6 min-h-screen my-25">
+    <div className="max-w-3xl mx-auto p-6 min-h-screen my-12 bg-gray-50">
       {/* Header & Progress Bar Section */}
       <div className="my-2 flex justify-between items-center gap-1.5">
         <p className="text-gray-400">
